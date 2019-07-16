@@ -16,6 +16,8 @@ class CreatePhotocontestsTable extends Migration
         Schema::create('photocontests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
         });
     }

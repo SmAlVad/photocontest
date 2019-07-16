@@ -15,7 +15,13 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->string('ip');
+
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+
             $table->timestamps();
         });
     }
