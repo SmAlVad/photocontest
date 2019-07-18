@@ -21,7 +21,8 @@ class ParticipantsTableSeeder extends Seeder
 
                 'name' => "Участник {$i}",
                 'email' => "{$i}mail@yendex.ru",
-                'phone' => "+7-92" . rand(1,9) . "-444-90-4" . rand(0,9)
+                'phone' => "+7-92" . rand(1,9) . "-444-90-4" . rand(0,9),
+                'last_hit' => now()
             ];
         }
 

@@ -3,12 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Image extends Model
 {
-    use SoftDeletes;
-
     protected $fillable = [];
 
     /**
@@ -29,5 +26,37 @@ class Image extends Model
     public function photocontest()
     {
         return $this->belongsTo(Photocontest::class);
+    }
+
+    /**
+     * Генерирует рандомную строку
+     *
+     * @param $length int
+     * @return string
+     */
+    public function generateRandomString($length = 20)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    /**
+     * Возвращает имя файла без расширения.
+     * Наличие расширения не проверяется
+     *
+     * @param $str string
+     * @return string
+     */
+    public function getNameWithoutExt($str)
+    {
+        $tmpArr = explode('.', $str);
+        $result = $tmpArr[0];
+
+        return $result;
     }
 }

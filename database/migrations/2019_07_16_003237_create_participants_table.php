@@ -19,8 +19,9 @@ class CreateParticipantsTable extends Migration
             $table->string('ip');
 
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('phone');
+            $table->dateTime('last_hit');
 
             $table->timestamps();
         });

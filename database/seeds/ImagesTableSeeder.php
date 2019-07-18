@@ -22,7 +22,9 @@ class ImagesTableSeeder extends Seeder
                 'mime' => 'image/jpg',
                 'ext' => 'jpg',
                 'size' => rand(100, 300),
-                'like' => 0
+                'description' => 'Описание фотографии',
+                'like' => rand(0,300),
+                'is_active' => rand(0,1)
             ];
         }
 

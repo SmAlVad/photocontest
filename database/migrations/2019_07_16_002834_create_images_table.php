@@ -24,6 +24,7 @@ class CreateImagesTable extends Migration
             $table->string('ext');
             $table->integer('size');
 
+            $table->string('description')->nullable();
             $table->integer('like')->unsigned();
 
             $table->boolean('is_active')->default(false);

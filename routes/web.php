@@ -15,4 +15,21 @@ Auth::routes();
 
 Route::get('/', 'IndexController@index')->name('index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Фотоконкурс "Карапузы"
+Route::group(['prefix' => 'karapuzy'], function () {
+
+    Route::get('/', 'KarapuzyController@karapuzy')->name('krpz');
+    Route::get('/participate', 'KarapuzyController@participate')->name('krpz-participate');
+    Route::get('/about', 'KarapuzyController@about')->name('krpz-about');
+    Route::post('/add', 'KarapuzyController@add')->name('krpz-add');
+
+});
+
+
+
+// Админка
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+
+    Route::get('/', 'AdminController@index')->name('admin-index');
+
+});

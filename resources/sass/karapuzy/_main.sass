@@ -1,0 +1,181 @@
+// Colors
+$krpz_light: #F0F7D4
+$krpz_light_green: #B2D732
+$krpz_green: #66B032
+$krpz_blue: #347B98
+$krpz_dark_blue: #092834
+
+$offset: 30px
+
+#krpz
+
+.krpz-bg
+    background-color: $krpz_light
+
+.krpz-bg-green
+    background-color: $krpz_green
+
+.krpz-bg-blue
+    background-color: $krpz_blue
+
+.krpz-submit-btn
+    display: block
+    margin: 0 auto
+    border: none
+    border-radius: $offset / 3
+    padding: ($offset / 2) $offset
+    background-color: $krpz_dark_blue
+    color: $krpz_light
+    text-transform: uppercase
+    &:hover
+        color: $krpz_light
+        cursor: pointer
+
+.red-star
+    color: red
+
+.flash
+    position: fixed
+    right: -100%
+    top: 70px
+    z-index: 1
+
+    span
+        margin-right: 20px
+
+
+.flash-active
+    right: 10px
+    transition: all 1s ease
+
+.krpz-nav
+    display: flex
+    justify-content: space-between
+
+    .navigation
+        padding-top: 10px
+
+        ul
+            list-style-type: none
+            display: flex
+
+            li
+                margin-right: 5px
+
+                a
+                    display: block
+                    padding: 20px 5px 5px 5px
+                    color: inherit
+                    text-transform: uppercase
+
+                    &:hover
+                        text-decoration: none
+                        color: $krpz_light
+                        background-color: $krpz_blue
+
+            .active
+                color: $krpz_light
+                background-color: $krpz_blue
+
+
+    .sponsor
+        padding: 10px
+
+        img
+            width: 300px
+
+.krpz-top-banner
+    position: relative
+    height: 472px
+    background-image: url("http://2x2.su/public/competition/images/86bc6d280c449ccbc87fd5dc279ce905d3a42eb8.png")
+    background-size: cover
+    margin-bottom: $offset
+
+    .krpz-top-banner-title-wrapper
+        width: 500px
+        padding: 10px 10px 10px 0
+        background-color: rgba(255, 255, 255, .5)
+        position: absolute
+        bottom: 50px
+
+        .krpz-top-banner-title
+            background-color: $krpz_blue
+            color: $krpz_light
+            padding: 20px
+
+.krpz-add-btn
+    display: block
+    border-radius: $offset / 3
+    padding: 10px
+    background-color: $krpz_blue
+    color: $krpz_light
+    text-transform: uppercase
+    text-align: center
+    margin-bottom: $offset
+
+    &:hover
+        background-color: $krpz_dark_blue
+        text-decoration: none
+        color: $krpz_light
+
+.sort-btn-wrapper
+    margin-bottom: $offset / 3
+
+    .sort-btn
+        a
+            display: inline-block
+            color: $krpz_dark_blue
+            border-radius: $offset / 3
+            padding: $offset / 3
+            margin-right: $offset / 3
+
+            &:hover
+                background-color: $krpz_dark_blue
+                color: $krpz_light
+                text-decoration: none
+
+        .sort-btn-active
+            background-color: $krpz_dark_blue
+            color: $krpz_light
+
+
+.krpz-image
+    margin-bottom: $offset
+
+    img
+        width: 100%
+
+
+#krpz-file-input
+    position: relative
+
+    #files
+        position: absolute
+        opacity: 0
+
+    .file-upload-label-wrapper
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        #file-upload-label
+            background-color: $krpz_blue
+            color: $krpz_light
+            padding: $offset / 3
+            border-radius: $offset / 3
+            text-transform: uppercase
+            &:hover
+                cursor: pointer
+
+    .preview
+        ol
+            padding: 0
+
+            li
+                margin-bottom: $offset
+
+                img
+                    width: 100%
+
+                input
+                    width: 100%

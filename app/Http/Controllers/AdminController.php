@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Image;
 use Illuminate\Http\Request;
-use \App\Photocontest;
 
-class IndexController extends Controller
+class AdminController extends Controller
 {
     public function index()
     {
-        return view('index');
+        return view('admin');
     }
 }
