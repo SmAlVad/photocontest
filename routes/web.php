@@ -31,5 +31,7 @@ Route::group(['prefix' => 'karapuzy'], function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('/', 'AdminController@index')->name('admin-index');
+    Route::get('/karapuzy', 'KarapuzyController@admin')->name('admin-krpz');
+
 
 });

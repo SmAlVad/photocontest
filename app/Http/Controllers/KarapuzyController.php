@@ -127,4 +127,12 @@ class KarapuzyController extends Controller
 
         return redirect('/karapuzy');
     }
+
+    public function admin()
+    {
+        $images = Img::orderBy('created_at', 'DESC')
+                    ->paginate(12);
+
+        return view('krpz/admin/index', compact('images'));
+    }
 }

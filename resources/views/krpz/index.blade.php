@@ -45,7 +45,7 @@
             @foreach($images as $image)
                 <div class="col-xl-4">
                     <div class="krpz-image">
-                        <img src="/storage/{{ $image->file_name }}.{{ $image->ext }}" alt="">
+                        <img src="/storage/{{ $image->file_name }}" alt="">
                     </div>
                 </div>
             @endforeach

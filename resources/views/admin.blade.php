@@ -1,23 +1,22 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+    <div class="container">
+        <div class="row">
+            @foreach($contests as $contest)
+                <div class="col-md-6">
+                    <a href="{{ route('admin-krpz') }}">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $contest->name }}</h5>
+                                <p class="card-text">
+                                    <small class="text-muted">Дата окончания:&nbsp;{{ $contest->end }}</small>
+                                </p>
+                            </div>
                         </div>
-                    @endif
-
-                    Admin
+                    </a>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
-</div>
 @endsection
