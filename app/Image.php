@@ -2,11 +2,12 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $fillable = [];
+    protected $fillable = ['description', 'like', 'is_active'];
 
     /**
      * Участник фотоконкурса
@@ -26,6 +27,12 @@ class Image extends Model
     public function photocontest()
     {
         return $this->belongsTo(Photocontest::class);
+    }
+
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::create($value)->format('d.m');
     }
 
     /**

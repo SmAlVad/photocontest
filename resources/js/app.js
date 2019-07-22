@@ -7,6 +7,7 @@
 //require('popper.js');
 //require('./bootstrap');
 
+window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -20,7 +21,7 @@
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 //Vue.component('navigation', require('./components/Navigation.vue').default);
-//Vue.component('form', require('./components/FotoForm.vue').default);
+Vue.component('admin-edit-checkbox', require('./components/Checkbox.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,6 +31,6 @@
 
 require('./krpz/main');
 
-/*const app = new Vue({
-    el: '#krpz'
-});*/
+const app = new Vue({
+    el: '#admin'
+});

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Image as Img;
+use App\Image;
 use App\Participant;
+use App\Repositories\ImageRepository;
 use Carbon\Carbon;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Facades\Image as Picture;
 use App\Photocontest;
 use Illuminate\Http\Request;
 use App\Http\Requests\KarapuzyAddRequest;
@@ -14,6 +15,13 @@ class KarapuzyController extends Controller
 {
     // Id фотоконкурса в БД
     const ID = 1;
+
+    private $imageRepository;
+
+    public function __construct()
+    {
+        $this->imageRepository = app(ImageRepository::class);
+    }
 
     /**
      * Главная станица фотоконкурса
@@ -27,10 +35,7 @@ class KarapuzyController extends Controller
 
         $photocontest = Photocontest::find(self::ID);
 
-        $images = Img::where('photocontest_id',self::ID)
-            ->where('is_active', 1)
-            ->orderBy('like', 'DESC')
-            ->paginate(30);
+        $images = $this->imageRepository->getAllActiveWithPaginate(30, 'like');
 
         return view('krpz/index', compact('photocontest', 'images', 'itemMenuActive'));
     }
@@ -87,8 +92,8 @@ class KarapuzyController extends Controller
 
             foreach ($files as $file) {
 
-                $image = new Img();
-                $pic = Image::make($file->getRealPath());
+                $image = new Image();
+                $pic = Picture::make($file->getRealPath());
                 $realFilename = $image->getNameWithoutExt($file->getClientOriginalName());
 
                 $filename  = $image->generateRandomString() . '.' . $file->getClientOriginalExtension();
@@ -128,11 +133,4 @@ class KarapuzyController extends Controller
         return redirect('/karapuzy');
     }
 
-    public function admin()
-    {
-        $images = Img::orderBy('created_at', 'DESC')
-                    ->paginate(12);
-
-        return view('krpz/admin/index', compact('images'));
-    }
 }

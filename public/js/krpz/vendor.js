@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/vendor"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/krpz/vendor"],{
 
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
@@ -48910,7 +48910,7 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!*********************************************************!*\
   !*** multi vue jquery bootstrap axios lodash popper.js ***!
   \*********************************************************/
@@ -48927,4 +48927,4 @@ module.exports = __webpack_require__(/*! popper.js */"./node_modules/popper.js/d
 
 /***/ })
 
-}]);
+},[[2,"/js/krpz/manifest"]]]);
