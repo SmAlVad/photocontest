@@ -18,7 +18,7 @@ class ImagesTableSeeder extends Seeder
             $images[] = [
                 'photocontest_id' => 1,
                 'participant_id' => $i,
-                'file_name' => $i,
+                'file_name' => $i . '.jpg',
                 'mime' => 'image/jpg',
                 'ext' => 'jpg',
                 'size' => rand(100, 300),
