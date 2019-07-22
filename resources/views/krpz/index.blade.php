@@ -1,4 +1,4 @@
-@extends('layouts.krpz')
+@extends('krpz.layouts.krpz')
 
 @section('content')
 
@@ -9,46 +9,83 @@
         </div>
     @endif
 
-    <div class="container">
-
-        <div class="krpz-top-banner">
-            <div class="krpz-top-banner-title-wrapper">
-                <div class="krpz-top-banner-title">
-                    <h1>Блондинки vs Брюнетки</h1>
-                    <p>
+    <!-- Banner section Start -->
+    <section class="banner-home">
+        <!-- Gradient -->
+        <div class="gradient"></div>
+        <!-- container Start-->
+        <div class="container">
+            <!--Row Start-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 data-aos="fade-left">Блондинки vs Брюнетки</h1>
+                    <h2 data-aos="fade-left" data-aos-delay="100">
                         Свершилось! Наконец-то мы сможем поставить точку в вечном споре, кто же круче - блондинки или
                         брюнетки.
-                    </p>
+                    </h2>
+
+                    <a data-aos="fade-left" data-aos-delay="500" class="btn btn-success"
+                       href="{{ route('krpz-participate') }}" role="button">Принять участие</a>
                 </div>
             </div>
+            <!--Row Ended-->
         </div>
+        <!-- container Ended-->
+    </section>
+    <!-- Banner section Ended -->
 
-
-        <div class="krpz-add">
-            @if($photocontest->end > now())
-                <a href="{{ route('krpz-participate') }}" class="krpz-add-btn">Принять участие</a>
-            @else
-                <h5>Голосование за участников завершилось:&nbsp;{{ $photocontest->end }}</h5>
-            @endif
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-xl-12">
-                <div class="sort-btn-wrapper">
-                    <div class="sort-btn">
-                        <a href="#" class="sort-btn-active">По популярности</a>
-                        <a href="#">По дате добавления</a>
-                    </div>
+    <!-- Blog section start-->
+    <section class="blog">
+        <!-- container Start-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-12 heading">
+                    <img src="images/leaf.png" alt="">
+                    <h2>Голосуй за участников!</h2>
+                    <h3>Давай давай!</h3>
                 </div>
+            </div>
+            <div class="row" data-aos="fade-up" data-aos-duration="400">
+
+                @foreach($images as $image)
+                    <div class="col-md-3">
+                        <div class="krpz-img">
+
+                            <div class="image-action">
+                                <div class="zoom-img">
+                                    <i class="fa fa-search-plus" aria-hidden="true"></i>
+                                </div>
+                                <div class="like-image" data-id="{{ $image->id }}">
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                </div>
+                                <img src="/storage/{{ $image->file_name }}" alt="{{ $image->description }}">
+                            </div>
+
+                            <h4>
+                                <span class="like-counter">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>{{ $image->like }}
+                                </span>
+                                {{ $image->description }}
+                            </h4>
+                            <div class="image-info">
+                                <span>{{ $image->created_at }}</span>
+                                Разместил(а) <b>{{ $image->participant->name }}</b>
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
 
             </div>
-            @foreach($images as $image)
-                <div class="col-xl-4">
-                    <div class="krpz-image">
-                        <img src="/storage/{{ $image->file_name }}" alt="">
-                    </div>
+
+            <div class="row">
+                <div class="col-md-12 col-12 button">
+                    <a class="btn btn-success" href="#" role="button">Все работы</a>
                 </div>
-            @endforeach
+            </div>
+
         </div>
-    </div>
+        <!-- container Ended-->
+    </section>
+    <!-- Blog section Ended-->
 @endsection

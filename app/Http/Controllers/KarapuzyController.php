@@ -29,7 +29,7 @@ class KarapuzyController extends Controller
 
         $images = Img::where('photocontest_id',self::ID)
             ->where('is_active', 1)
-            ->orderBy('like')
+            ->orderBy('like', 'DESC')
             ->paginate(30);
 
         return view('krpz/index', compact('photocontest', 'images', 'itemMenuActive'));

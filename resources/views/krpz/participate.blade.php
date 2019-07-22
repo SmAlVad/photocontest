@@ -1,11 +1,14 @@
-@extends('layouts.krpz')
+@extends('krpz.layouts.krpz')
 
 @section('content')
-    <div class="container">
+
+    <section class="banner-another"></section>
+
+    <div class="container participate">
 
         @if($errors->any())
             <div class="row justify-content-center">
-                <div class="col-md-11">
+                <div class="col-md-12">
                     <div class="alert alert-danger" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="close">
                             <span aria-hidden="true">x</span>
@@ -23,8 +26,13 @@
         @endif
 
         <div class="row justify-content-center">
-            <div class="col-xl-8">
-                <form action="{{ route('krpz-add') }}" method="POST" enctype="multipart/form-data">
+
+            <div class="col-xl-12">
+                <h1 class="text-title">Заполните форму</h1>
+            </div>
+
+            <div class="col-xl-12">
+                <form action="{{ route('krpz-add') }}" method="POST" enctype="multipart/form-data" class="participate-form">
 
                     @csrf
 

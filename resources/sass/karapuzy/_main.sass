@@ -7,144 +7,76 @@ $krpz_dark_blue: #092834
 
 $offset: 30px
 
-#krpz
+.krpz-img
+    margin-bottom: $offset / 2
+    padding: $offset / 3
+    background-color: rgba(242, 242, 242, .5)
+    border-radius: 5px
 
-.krpz-bg
-    background-color: $krpz_light
+    .image-info
+        font-size: .8rem
 
-.krpz-bg-green
-    background-color: $krpz_green
-
-.krpz-bg-blue
-    background-color: $krpz_blue
-
-.krpz-submit-btn
-    display: block
-    margin: 0 auto
-    border: none
-    border-radius: $offset / 3
-    padding: ($offset / 2) $offset
-    background-color: $krpz_dark_blue
-    color: $krpz_light
-    text-transform: uppercase
-    &:hover
-        color: $krpz_light
-        cursor: pointer
 
 .red-star
     color: red
 
-.flash
-    position: fixed
-    right: -100%
-    top: 70px
-    z-index: 1
-
-    span
-        margin-right: 20px
+.text-title
+    color: $krpz_dark_blue
+    font-size: 3rem !important
+    padding: $offset 0
 
 
-.flash-active
-    right: 10px
-    transition: all 1s ease
-
-.krpz-nav
-    display: flex
-    justify-content: space-between
-
-    .navigation
-        padding-top: 10px
-
-        ul
-            list-style-type: none
-            display: flex
-
-            li
-                margin-right: 5px
-
-                a
-                    display: block
-                    padding: 20px 5px 5px 5px
-                    color: inherit
-                    text-transform: uppercase
-
-                    &:hover
-                        text-decoration: none
-                        color: $krpz_light
-                        background-color: $krpz_blue
-
-            .active
-                color: $krpz_light
-                background-color: $krpz_blue
-
-
-    .sponsor
-        padding: 10px
-
-        img
-            width: 300px
-
-.krpz-top-banner
-    position: relative
-    height: 472px
-    background-image: url("http://2x2.su/public/competition/images/86bc6d280c449ccbc87fd5dc279ce905d3a42eb8.png")
-    background-size: cover
-    margin-bottom: $offset
-
-    .krpz-top-banner-title-wrapper
-        width: 500px
-        padding: 10px 10px 10px 0
-        background-color: rgba(255, 255, 255, .5)
-        position: absolute
-        bottom: 50px
-
-        .krpz-top-banner-title
-            background-color: $krpz_blue
-            color: $krpz_light
-            padding: 20px
-
-.krpz-add-btn
-    display: block
-    border-radius: $offset / 3
-    padding: 10px
+.like-counter
+    margin-right: $offset / 3
     background-color: $krpz_blue
     color: $krpz_light
-    text-transform: uppercase
-    text-align: center
-    margin-bottom: $offset
+    padding: 2px 5px
+    border-radius: 5px
 
-    &:hover
-        background-color: $krpz_dark_blue
-        text-decoration: none
+    i
+        margin-right: 5px
+
+.image-action
+    position: relative
+    margin-bottom: $offset / 10
+
+    .zoom-img
+        display: none
+        position: absolute
+        top: 10px
+        right: 10px
+        font-size: 1.5rem
+        padding: 0 10px
+        border-radius: 5px
         color: $krpz_light
+        background-color: rgba(52, 123, 152, .5)
+        &:hover
+            cursor: pointer
 
-.sort-btn-wrapper
-    margin-bottom: $offset / 3
-
-    .sort-btn
-        a
-            display: inline-block
-            color: $krpz_dark_blue
-            border-radius: $offset / 3
-            padding: $offset / 3
-            margin-right: $offset / 3
-
-            &:hover
-                background-color: $krpz_dark_blue
-                color: $krpz_light
-                text-decoration: none
-
-        .sort-btn-active
-            background-color: $krpz_dark_blue
-            color: $krpz_light
+    .like-image
+        transition: all .3s ease
+        font-size: 2rem
+        color: $krpz_light
+        background-color: rgba(52, 123, 152, .5)
+        position: absolute
+        padding: 0 10px
+        border-radius: 5px
+        bottom: 10px
+        right: 10px
+        &:hover
+            cursor: pointer
+            transform: scale(1.1)
+            color: pink
 
 
-.krpz-image
-    margin-bottom: $offset
 
-    img
-        width: 100%
+.participate
+    padding-bottom: 5%
 
+    .participate-form
+        padding: 6%
+        border-radius: $offset / 3
+        background-color: #f2f2f2
 
 #krpz-file-input
     position: relative
@@ -154,6 +86,7 @@ $offset: 30px
         opacity: 0
 
     .file-upload-label-wrapper
+        padding-top: $offset - 10
         display: flex
         justify-content: space-between
         align-items: center
@@ -164,6 +97,7 @@ $offset: 30px
             padding: $offset / 3
             border-radius: $offset / 3
             text-transform: uppercase
+
             &:hover
                 cursor: pointer
 
@@ -179,3 +113,14 @@ $offset: 30px
 
                 input
                     width: 100%
+
+.krpz-submit-btn
+    font-size: 1.3rem
+    border: none
+    color: $krpz_light
+    background-color: $krpz_dark_blue
+    display: block
+    margin: 0 auto
+    padding: ($offset / 3) $offset
+    border-radius: $offset / 3
+    text-transform: uppercase
