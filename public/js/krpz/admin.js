@@ -40,7 +40,7 @@ $(document).ready(function () {
             },
             success: function (data) {
 
-                $('#loader').fadeOut(300);
+                $('#loader').hide();
                 $('#success-alert').fadeIn(300);
 
                 setTimeout(function () {

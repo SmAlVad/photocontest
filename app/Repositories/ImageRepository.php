@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Collection;
 class ImageRepository extends CoreRepository
 {
 
+    protected $columns = ['id', 'participant_id' , 'file_name', 'description', 'like', 'is_active', 'created_at'];
+
     /**
      * @return string
      */
@@ -35,10 +37,9 @@ class ImageRepository extends CoreRepository
 
     public function getAllWithPaginate($perPage = null, $orderColumn = 'id', $der = 'DESC')
     {
-        $columns = ['id', 'participant_id' , 'file_name', 'description', 'like', 'is_active', 'created_at'];
 
         $result = $this->startConditions()
-            ->select($columns)
+            ->select($this->columns)
             ->orderBy($orderColumn, $der)
             ->with([
                 'participant:id,name,phone'
@@ -50,10 +51,9 @@ class ImageRepository extends CoreRepository
 
     public function getAllActiveWithPaginate($perPage = null, $orderColumn = 'id', $der = 'DESC')
     {
-        $columns = ['id', 'participant_id' , 'file_name', 'description', 'like', 'created_at'];
 
         $result = $this->startConditions()
-            ->select($columns)
+            ->select($this->columns)
             ->where('is_active', 1)
             ->orderBy($orderColumn, $der)
             ->with([
@@ -64,4 +64,37 @@ class ImageRepository extends CoreRepository
         return $result;
     }
 
+    public function getForSearch($perPage, $isActive, $value)
+    {
+        $result = $this->startConditions()
+            ->select($this->columns)
+            ->whereIn('is_active', $isActive)
+            ->orderBy('id', 'DESC')
+            ->with([
+                'participant:id,name'
+            ])
+            ->paginate($perPage)
+            ->appends('is_active', $value);
+
+        return $result;
+    }
+
+    public function getCount()
+    {
+        $all = $this->startConditions()->count();
+        $active = $this->startConditions()
+            ->where('is_active',1)
+            ->count();
+        $nonActive = $this->startConditions()
+            ->where('is_active',0)
+            ->count();
+
+        $result = [
+            'all' => $all,
+            'active' => $active,
+            'nonActive' => $nonActive
+        ];
+
+        return $result;
+    }
 }

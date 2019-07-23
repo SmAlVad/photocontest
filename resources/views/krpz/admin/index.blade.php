@@ -8,6 +8,51 @@
         @include('krpz.admin.errors')
 
         <div class="row">
+
+            <div class="col-xl-6 mb-4">
+                <ul class="list-group list-group-horizontal-sm">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Всего&nbsp;&nbsp;
+                        <span class="badge badge-primary badge-pill">{{ $count['all'] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Активных&nbsp;&nbsp;
+                        <span class="badge badge-primary badge-pill">{{ $count['active'] }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Не активных&nbsp;&nbsp;
+                        <span class="badge badge-primary badge-pill">{{ $count['nonActive'] }}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-xl-6">
+                <form action="{{ route('admin-krpz-search') }}" method="GET" class="mb-4">
+                    <div class="row">
+{{--                        <div class="col">
+                            <label for="sort-date" class="d-none">По дате</label>
+                            <select id="sort-date" class="form-control form-control-sm" name="sort_date">
+                                <option value="desc">Сначала новые</option>
+                                <option value="asc">Сначала старые</option>
+                            </select>
+                        </div>--}}
+
+                        <div class="col-xl-2">
+                            <label for="sort-active" class="">Показать</label>
+                        </div>
+                        <div class="col-xl-8">
+                            <select id="sort-active" class="form-control form-control-sm" name="is_active">
+                                <option value="all">Все</option>
+                                <option value="yes">Все активные</option>
+                                <option value="no">Все не активные</option>
+                            </select>
+                        </div>
+
+                        <div class="col-xl-2"><button type="submit" class="btn btn-primary btn-sm">Вперёд</button></div>
+                    </div>
+                </form>
+            </div>
+
             <div class="col-xl-12">
                 <table class="table table-sm" style="width: 100%">
                     <thead>

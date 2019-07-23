@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Image;
 use App\Repositories\ImageRepository;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 
 
 class KrpzController extends Controller
@@ -24,11 +25,32 @@ class KrpzController extends Controller
      */
     public function index()
     {
+        $count = $this->getCountFromCache();
         $images = $this->imageRepository->getAllWithPaginate(30);
 
-        return view('krpz/admin/index', compact('images'));
+        return view('krpz/admin/index', compact('images', 'count'));
     }
 
+
+    public function search(Request $request)
+    {
+        if ($request->input('is_active') === 'yes') {
+            $isActive = [1];
+            $value = 'yes';
+        } elseif ($request->input('is_active') === 'no') {
+            $isActive = [0];
+            $value = 'no';
+        } else {
+            $isActive = [1,0];
+            $value = 'all';
+        }
+
+        $count = $this->getCountFromCache();
+
+        $images = $this->imageRepository->getForSearch(30, $isActive, $value);
+
+        return view('krpz/admin/index', compact('images', 'count'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -107,8 +129,6 @@ class KrpzController extends Controller
      */
     public function controlImage(Request $request)
     {
-        sleep(1);
-
         $result = [];
 
         if ($request->has('id')) {
@@ -123,6 +143,24 @@ class KrpzController extends Controller
         }
 
         return response()->json($result);
+    }
+
+    /**
+     * Получить из кэша данные для админки
+     *
+     * @return array
+     */
+    public function getCountFromCache()
+    {
+        if (Cache::has('count')) {
+            $result = Cache::get('count');
+        } else {
+            $result = $this->imageRepository->getCount();
+
+            Cache::put('count', $result, now()->addMinutes(10));
+        }
+
+        return $result;
     }
 
 }

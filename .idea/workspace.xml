@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aab9f4bc-da9b-429b-8e36-d97516543e68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/KrpzController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/KrpzController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ImageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ImageRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/krpz/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/krpz/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Checkbox.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/karapuzy/_main.sass" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/karapuzy/_main.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/krpz/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/krpz/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/debugbar/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,40 +34,29 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/krpz/admin.js">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KrpzController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+            <state relative-caret-position="510">
+              <caret line="107" column="7" lean-forward="true" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="7" />
               <folding>
-                <element signature="e#153#334#0" />
-                <element signature="e#369#497#0" />
+                <element signature="e#46#60#0#PHP" expanded="true" />
+                <element signature="e#1576#1791#0#PHP" />
+                <element signature="e#1984#2533#0#PHP" />
+                <element signature="e#2678#2971#0#PHP" />
+                <element signature="e#3122#3534#0#PHP" />
+                <element signature="e#3432#3733#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/ImageRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="73" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/karapuzy/_main.sass">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="133" selection-start-line="133" selection-end-line="133" />
+            <state relative-caret-position="202">
+              <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
               <folding>
-                <element signature="e#150#317#0" />
-                <element signature="e#357#438#0" />
-                <element signature="e#454#617#0" />
-                <element signature="e#632#1357#0" />
-                <element signature="e#1373#1508#0" />
-                <element signature="e#1526#2236#0" />
-                <element signature="e#2254#2488#0" />
+                <element signature="e#37#60#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,33 +65,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/krpz/admin/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="983">
-              <caret line="81" column="68" selection-start-line="81" selection-start-column="68" selection-end-line="81" selection-end-column="68" />
+            <state relative-caret-position="-75">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
-                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#411#417#0#HTML" expanded="true" />
+                <element signature="e#417#423#0#HTML" expanded="true" />
+                <element signature="e#660#666#0#HTML" expanded="true" />
+                <element signature="e#666#672#0#HTML" expanded="true" />
+                <element signature="e#911#917#0#HTML" expanded="true" />
+                <element signature="e#917#923#0#HTML" expanded="true" />
+                <element signature="e#2627#2646#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KrpzController.php">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
-              <folding>
-                <element signature="e#46#83#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="390">
+              <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -188,7 +160,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
         <option value="$PROJECT_DIR$/resources/views/krpz/admin/errors.blade.php" />
-        <option value="$PROJECT_DIR$/app/Image.php" />
         <option value="$PROJECT_DIR$/resources/js/krpz/admin.js" />
         <option value="$PROJECT_DIR$/webpack.mix.js" />
         <option value="$PROJECT_DIR$/resources/js/components/Checkbox.vue" />
@@ -196,18 +167,19 @@
         <option value="$PROJECT_DIR$/resources/views/krpz/admin/edit.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_07_16_002834_create_images_table.php" />
         <option value="$PROJECT_DIR$/resources/views/krpz/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/ImageRepository.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/KarapuzyController.php" />
         <option value="$PROJECT_DIR$/database/seeds/ImagesTableSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/admin.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/sass/karapuzy/_main.sass" />
         <option value="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/KrpzController.php" />
-        <option value="$PROJECT_DIR$/resources/views/krpz/admin/index.blade.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/public/js/krpz/admin.js" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Image.php" />
+        <option value="$PROJECT_DIR$/resources/views/krpz/admin/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/ImageRepository.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/KrpzController.php" />
       </list>
     </option>
   </component>
@@ -326,48 +298,7 @@
             <path>
               <item name="photocontest" type="b2602c69:ProjectViewProjectNode" />
               <item name="photocontest" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="photocontest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photocontest" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="sass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="photocontest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photocontest" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="sass" type="462c0819:PsiDirectoryNode" />
-              <item name="karapuzy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="photocontest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photocontest" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="photocontest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photocontest" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="krpz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="photocontest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photocontest" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="krpz" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="photocontest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photocontest" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -462,12 +393,12 @@
       <workItem from="1563410315099" duration="25599000" />
       <workItem from="1563498776963" duration="19198000" />
       <workItem from="1563752672222" duration="28623000" />
-      <workItem from="1563840031227" duration="13827000" />
+      <workItem from="1563840031227" duration="23068000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131355000" />
+    <option name="totallyTimeSpent" value="140596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -499,13 +430,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/KarapuzyAddRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/ParticipantsTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -714,26 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-          <folding>
-            <element signature="e#23#41#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ImageRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="52" column="58" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="58" />
-          <folding>
-            <element signature="e#37#60#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Http/UploadedFile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -778,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="30" selection-start-line="30" selection-end-line="30" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/krpz/layouts/krpz.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -806,6 +703,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="7270" column="4" selection-start-line="7270" selection-start-column="4" selection-end-line="7270" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="73" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/karapuzy/_main.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -822,55 +733,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js">
+    <entry file="file://$PROJECT_DIR$/public/js/krpz/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="7270" column="4" selection-start-line="7270" selection-start-column="4" selection-end-line="7270" selection-end-column="4" />
+        <state relative-caret-position="93">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="983">
-          <caret line="81" column="68" selection-start-line="81" selection-start-column="68" selection-end-line="81" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="518">
+          <caret line="77" column="15" lean-forward="true" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
+    <entry file="file://$PROJECT_DIR$/app/Image.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="73" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KrpzController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+        <state relative-caret-position="232">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
-            <element signature="e#46#83#0#PHP" expanded="true" />
+            <element signature="e#23#41#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/krpz/admin/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
+        <state relative-caret-position="-75">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#411#417#0#HTML" expanded="true" />
+            <element signature="e#417#423#0#HTML" expanded="true" />
+            <element signature="e#660#666#0#HTML" expanded="true" />
+            <element signature="e#666#672#0#HTML" expanded="true" />
+            <element signature="e#911#917#0#HTML" expanded="true" />
+            <element signature="e#917#923#0#HTML" expanded="true" />
+            <element signature="e#2627#2646#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/krpz/admin.js">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/ImageRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        <state relative-caret-position="202">
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
           <folding>
-            <element signature="e#153#334#0" />
-            <element signature="e#369#497#0" />
+            <element signature="e#37#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/cache.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KrpzController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="107" column="7" lean-forward="true" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="7" />
+          <folding>
+            <element signature="e#46#60#0#PHP" expanded="true" />
+            <element signature="e#1576#1791#0#PHP" />
+            <element signature="e#1984#2533#0#PHP" />
+            <element signature="e#2678#2971#0#PHP" />
+            <element signature="e#3122#3534#0#PHP" />
+            <element signature="e#3432#3733#0#PHP" />
           </folding>
         </state>
       </provider>
