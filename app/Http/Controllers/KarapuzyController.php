@@ -67,6 +67,12 @@ class KarapuzyController extends Controller
     }
 
 
+    public function userInfo()
+    {
+        $itemMenuActive = '';
+        return view('krpz/userinfo', compact('itemMenuActive'));
+    }
+
     /**
      * Добавление фотографии
      *
@@ -74,7 +80,6 @@ class KarapuzyController extends Controller
      */
     public function add(KarapuzyAddRequest $request)
     {
-        $message = 'Спасибо за участие! Ваши фото успешно добавлены!';
         $fileCount = 0;
 
         if($request->hasFile('attachment'))
@@ -128,9 +133,7 @@ class KarapuzyController extends Controller
             }
         }
 
-        session()->flash('flash_message', $message);
-
-        return redirect('/karapuzy');
+        return redirect()->route('krpz-user-info');
     }
 
 }

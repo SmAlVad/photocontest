@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/karapuzy/control-image', 'Admin\KrpzController@controlImage')->name('admin-krpz-control-image');
+Route::patch('/karapuzy/control-image', 'Admin\KrpzController@controlImage')->name('admin-krpz-control-image');

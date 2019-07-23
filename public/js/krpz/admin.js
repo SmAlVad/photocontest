@@ -33,7 +33,7 @@ $(document).ready(function () {
             url: url,
             async: true,
             dataType: "json",
-            type: "POST",
+            type: "PATCH",
             data: `id=${id}`,
             beforeSend: function () {
                 $("#loader").fadeIn(300);

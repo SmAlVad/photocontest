@@ -22,6 +22,7 @@ Route::group(['prefix' => 'karapuzy'], function () {
     Route::get('/participate', 'KarapuzyController@participate')->name('krpz-participate');
     Route::get('/about', 'KarapuzyController@about')->name('krpz-about');
     Route::post('/add', 'KarapuzyController@add')->name('krpz-add');
+    Route::get('/user-info', 'KarapuzyController@userInfo')->name('krpz-user-info');
 
 });
 
