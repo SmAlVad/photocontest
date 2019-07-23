@@ -24,8 +24,9 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @foreach ($images as $image)
-                        <tr class="@if($image->is_active) table-success @endif">
+                        <tr class="@if($image->is_active) table-success @endif tr-image-{{ $image->id }}">
                             <th scope="row">{{ $image->id }}</th>
                             <td><img src="/storage/{{ $image->file_name }}" alt="" width="200px"></td>
                             <td class="text-center">{{ $image->participant->name }}</td>
@@ -34,19 +35,34 @@
                             <td class="text-center">{{ $image->like }}</td>
                             <td class="text-center">
                                 @if($image->is_active)
-                                    <form action="{{ route('admin-krpz-deactivate-image') }}" method="post">
+{{--                                    <form action="{{ route('admin-krpz-deactivate-image') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $image->id  }}">
-                                        <button type="submit" class="btn btn-outline-success"><i
-                                                class="fas fa-toggle-on"></i></button>
-                                    </form>
+                                        <button type="submit" class="btn btn-outline-success">
+                                            <i class="fas fa-toggle-on"></i>
+                                        </button>
+                                    </form>--}}
+                                    <div
+                                        class="btn btn-outline-success control-image-btn"
+                                        data-id="{{ $image->id  }}"
+                                        data-url="{{ route('admin-krpz-control-image') }}"
+                                    >
+                                        <i class="fas fa-toggle-on"></i>
+                                    </div>
                                 @else
-                                    <form action="{{ route('admin-krpz-activate-image') }}" method="post">
+ {{--                                   <form action="{{ route('admin-krpz-activate-image') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $image->id  }}">
                                         <button type="submit" class="btn btn-outline-secondary"><i
                                                 class="fas fa-toggle-off"></i></button>
-                                    </form>
+                                    </form>--}}
+                                    <div
+                                        class="btn btn-outline-secondary control-image-btn"
+                                        data-id="{{ $image->id  }}"
+                                        data-url="{{ route('admin-krpz-control-image') }}"
+                                    >
+                                        <i class="fas fa-toggle-off"></i>
+                                    </div>
                                 @endif
                             </td>
                             <td class="text-center">

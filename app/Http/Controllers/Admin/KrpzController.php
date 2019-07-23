@@ -100,43 +100,29 @@ class KrpzController extends Controller
     }
 
     /**
-     * Делает изображение активным
+     * Переключает активность изображения
      *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function activateImage(Request $request)
+    public function controlImage(Request $request)
     {
+        sleep(1);
+
+        $result = [];
+
         if ($request->has('id')) {
             $image = $this->imageRepository->getEdit($request->id);
 
-            $image->is_active = 1;
+            $state = !$image->is_active;
+            $image->is_active = $state;
+
             $image->save();
+
+            $result = ['success' => true, 'status' => $state];
         }
 
-
-        return redirect()
-            ->back()
-            ->with(['success' => 'Успешно сохранено!']);;
+        return response()->json($result);
     }
 
-    /**
-     * Делает изображение неактивным
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function deactivateImage(Request $request)
-    {
-        if ($request->has('id')) {
-            $image = $this->imageRepository->getEdit($request->id);
-
-            $image->is_active = 0;
-            $image->save();
-        }
-
-        return redirect()
-            ->back()
-            ->with(['success' => 'Успешно сохранено!']);
-    }
 }

@@ -9840,3 +9840,28 @@ h3 {
   border-radius: 10px;
   text-transform: uppercase;
 }
+
+#loader {
+  display: none;
+  position: fixed;
+  top: 40px;
+  right: 10px;
+}
+
+#success-alert {
+  display: none;
+  position: fixed;
+  top: 40px;
+  right: 10px;
+  padding: 10px 15px;
+  border-radius: 3px;
+}
+
+#error-alert {
+  display: none;
+  position: fixed;
+  top: 40px;
+  right: 10px;
+  padding: 10px 15px;
+  border-radius: 3px;
+}

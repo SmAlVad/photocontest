@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['auth
     Route::get('/karapuzy/edit/{id}', 'KrpzController@edit')->name('admin-krpz-edit');
     Route::get('/karapuzy/update/{id}', 'KrpzController@update')->name('admin-krpz-update');
     Route::get('/karapuzy/destroy/{id}', 'KrpzController@destroy')->name('admin-krpz-destroy');
-    Route::post('/karapuzy/activate-image', 'KrpzController@activateImage')->name('admin-krpz-activate-image');
-    Route::post('/karapuzy/deactivate-image', 'KrpzController@deactivateImage')->name('admin-krpz-deactivate-image');
+    //Route::post('/karapuzy/activate-image', 'KrpzController@activateImage')->name('admin-krpz-activate-image');
+    //Route::post('/karapuzy/deactivate-image', 'KrpzController@deactivateImage')->name('admin-krpz-deactivate-image');
 
 });

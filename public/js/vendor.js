@@ -48927,4 +48927,4 @@ module.exports = __webpack_require__(/*! popper.js */"./node_modules/popper.js/d
 
 /***/ })
 
-}]);
+},[[1,"/js/manifest"]]]);

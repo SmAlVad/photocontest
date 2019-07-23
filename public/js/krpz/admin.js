@@ -1,10 +1,7 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
     let checkbox = $('#form-checkbox');
-
-    let successMsg = $('#admin-success-message');
-
-    if (checkbox.length !== 0){
+    if (checkbox.length !== 0) {
         checkbox.on('change', function () {
             let cb = $(this);
             let val = cb.prop('checked') ? 1 : 0;
@@ -13,6 +10,7 @@ $(document).ready(function(){
         })
     }
 
+    let successMsg = $('#admin-success-message');
     if (successMsg.length !== 0) {
 
         successMsg.fadeIn(300);
@@ -22,4 +20,58 @@ $(document).ready(function(){
         }, 2000)
     }
 
+    // Акривировать
+    $('.control-image-btn').on('click', function (e) {
+
+        e.preventDefault();
+
+        let $this = $(this);
+        let id = $this.data('id');
+        let url = $this.data('url');
+
+        $.ajax({
+            url: url,
+            async: true,
+            dataType: "json",
+            type: "POST",
+            data: `id=${id}`,
+            beforeSend: function () {
+                $("#loader").fadeIn(300);
+            },
+            success: function (data) {
+
+                $('#loader').fadeOut(300);
+                $('#success-alert').fadeIn(300);
+
+                setTimeout(function () {
+                    $('#success-alert').fadeOut(300);
+                }, 2000);
+
+                // Активировать
+               if (data.status === true) {
+                   $('.tr-image-' + id).addClass('table-success');
+
+                   $this.removeClass('btn-outline-secondary');
+                   $this.addClass('btn-outline-success');
+                   $this.html('<i class="fas fa-toggle-on"></i>');
+               } else {
+                   // Деактивировать
+                   $('.tr-image-' + id).removeClass('table-success');
+
+                   $this.removeClass('btn-outline-success');
+                   $this.addClass('btn-outline-secondary');
+                   $this.html('<i class="fas fa-toggle-off"></i>');
+               }
+            },
+            error: function () {
+                $('#loader').fadeOut(300);
+                $('#error-alert').fadeIn(300);
+
+                setTimeout(function () {
+                    $('#error-alert').fadeOut(300);
+                }, 2000)
+            }
+        });
+
+    });
 });
