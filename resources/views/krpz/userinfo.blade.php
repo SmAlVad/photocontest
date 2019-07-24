@@ -15,10 +15,14 @@
                     </p>
 
                     <a data-aos="fade-left" data-aos-delay="500" class="btn btn-success"
-                       href="{{ route('krpz-participate') }}" role="button">Принять участие</a>
+                       href="{{ route('krpz-all') }}" role="button">Все работы</a>
 
                 </div>
-                
+
+                <div class="col-md-12 col-12 button">
+                    <a class="btn btn-success" href="{{ route('krpz-all') }}" role="button">Все работы</a>
+                </div>
+
             </div>
         </div>
     </div>

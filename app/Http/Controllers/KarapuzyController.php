@@ -14,7 +14,7 @@ use App\Http\Requests\KarapuzyAddRequest;
 class KarapuzyController extends Controller
 {
     // Id фотоконкурса в БД
-    const ID = 1;
+    private $ID = 1;
 
     private $imageRepository;
 
@@ -28,18 +28,49 @@ class KarapuzyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function karapuzy()
+    public function karapuzy(Request $request)
     {
-
         $itemMenuActive = 'index';
+        $itemsOnPage = 12;
 
-        $photocontest = Photocontest::find(self::ID);
+        if ($request->has('sort')) {
+            $column = $request->sort;
+            $sortLinkActive = 'sort-by-date';
+        } else {
+            $column = 'like';
+            $sortLinkActive = 'sort-by-like';
+        }
 
-        $images = $this->imageRepository->getAllActiveWithPaginate(30, 'like');
+        $photocontest = Photocontest::find($this->ID);
 
-        return view('krpz/index', compact('photocontest', 'images', 'itemMenuActive'));
+        $images = $this->imageRepository->getAllForIndex($column, $itemsOnPage, $this->ID);
+
+        return view('krpz/index', compact('photocontest', 'images', 'itemMenuActive', 'sortLinkActive'));
     }
 
+
+    /**
+     * Страница просмотра всех изображений
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function all(Request $request)
+    {
+        $itemsPerPage = 12;
+        $itemMenuActive = 'all';
+        $column = 'created_at';
+
+        if ($request->has('sort')) {
+            $column = $request->sort;
+            $sortLinkActive = 'sort-by-like';
+        } else {
+            $sortLinkActive = 'sort-by-date';
+        }
+
+        $images = $this->imageRepository->getAllWithPaginate($this->ID, $itemsPerPage, $column);
+
+        return view('krpz/all', compact( 'images', 'itemMenuActive', 'sortLinkActive'));
+    }
 
     /**
      * Страница с формой добавления фотонрафии
@@ -66,7 +97,11 @@ class KarapuzyController extends Controller
         return view('krpz/about', compact('itemMenuActive'));
     }
 
-
+    /**
+     * Страница на которую перейдет пользователь, после добавления фотографии
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function userInfo()
     {
         $itemMenuActive = '';
@@ -103,7 +138,7 @@ class KarapuzyController extends Controller
 
                 $filename  = $image->generateRandomString() . '.' . $file->getClientOriginalExtension();
 
-                $image->photocontest_id = 1;
+                $image->photocontest_id = $this->ID;
                 $image->participant_id = $participant->id;
                 $image->file_name =  $filename;
                 $image->mime = $file->getClientMimeType();

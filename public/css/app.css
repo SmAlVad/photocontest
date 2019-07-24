@@ -9738,22 +9738,14 @@ h3 {
   padding: 30px 0;
 }
 
-.like-counter {
-  margin-right: 10px;
-  background-color: #347B98;
-  color: #F0F7D4;
-  padding: 2px 5px;
-  border-radius: 5px;
-}
-.like-counter i {
-  margin-right: 5px;
-}
-
-.image-action {
+.krpz-img .image-action {
   position: relative;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 }
-.image-action .zoom-img {
+.krpz-img .image-action img {
+  width: 100%;
+}
+.krpz-img .image-action .zoom-img {
   display: none;
   position: absolute;
   top: 10px;
@@ -9764,10 +9756,10 @@ h3 {
   color: #F0F7D4;
   background-color: rgba(52, 123, 152, 0.5);
 }
-.image-action .zoom-img:hover {
+.krpz-img .image-action .zoom-img:hover {
   cursor: pointer;
 }
-.image-action .like-image {
+.krpz-img .image-action .like-image {
   transition: all 0.3s ease;
   font-size: 2rem;
   color: #F0F7D4;
@@ -9778,10 +9770,24 @@ h3 {
   bottom: 10px;
   right: 10px;
 }
-.image-action .like-image:hover {
+.krpz-img .image-action .like-image:hover {
   cursor: pointer;
   transform: scale(1.1);
   color: pink;
+}
+.krpz-img h4 {
+  font-size: 1rem;
+}
+.krpz-img .like-counter {
+  margin-right: 10px;
+  background-color: #347B98;
+  color: #F0F7D4;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.krpz-img .like-counter i {
+  margin-right: 5px;
 }
 
 .participate {

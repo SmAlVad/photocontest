@@ -4080,17 +4080,7 @@ __webpack_require__(/*! ./krpz/main */ "./resources/js/krpz/main.js");
 
 var Inputmask = __webpack_require__(/*! inputmask */ "./node_modules/inputmask/index.js");
 
-var fileTypes = ['image/jpeg', 'image/pjpeg', 'image/png'];
-$(document).ready(function () {
-  var flash = $('.flash');
-
-  if (flash.length > 0) {
-    flash.addClass('flash-active');
-    /*    setTimeout(function () {
-            flash.removeClass('flash-active')
-        }, 5000)*/
-  }
-});
+var fileTypes = ['image/jpeg', 'image/pjpeg', 'image/png']; // Добавление фотографии
 
 if (window.location.pathname === '/karapuzy/participate') {
   var updateImageDisplay = function updateImageDisplay() {
@@ -4143,7 +4133,11 @@ if (window.location.pathname === '/karapuzy/participate') {
     mask.mask('#tel');
   });
   input.addEventListener('change', updateImageDisplay);
-}
+} // Голосование за фотографию
+
+
+$('.like-image').on('click', function () {// Про геолокацию https://developers.google.com/web/fundamentals/native-hardware/user-location/?hl=ru
+});
 
 function validFileType(file) {
   for (var i = 0; i < fileTypes.length; i++) {

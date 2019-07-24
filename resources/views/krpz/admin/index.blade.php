@@ -29,14 +29,6 @@
             <div class="col-xl-6">
                 <form action="{{ route('admin-krpz-search') }}" method="GET" class="mb-4">
                     <div class="row">
-{{--                        <div class="col">
-                            <label for="sort-date" class="d-none">По дате</label>
-                            <select id="sort-date" class="form-control form-control-sm" name="sort_date">
-                                <option value="desc">Сначала новые</option>
-                                <option value="asc">Сначала старые</option>
-                            </select>
-                        </div>--}}
-
                         <div class="col-xl-2">
                             <label for="sort-active" class="">Показать</label>
                         </div>
@@ -80,13 +72,6 @@
                             <td class="text-center">{{ $image->like }}</td>
                             <td class="text-center">
                                 @if($image->is_active)
-{{--                                    <form action="{{ route('admin-krpz-deactivate-image') }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $image->id  }}">
-                                        <button type="submit" class="btn btn-outline-success">
-                                            <i class="fas fa-toggle-on"></i>
-                                        </button>
-                                    </form>--}}
                                     <div
                                         class="btn btn-outline-success control-image-btn"
                                         data-id="{{ $image->id  }}"
@@ -95,12 +80,6 @@
                                         <i class="fas fa-toggle-on"></i>
                                     </div>
                                 @else
- {{--                                   <form action="{{ route('admin-krpz-activate-image') }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $image->id  }}">
-                                        <button type="submit" class="btn btn-outline-secondary"><i
-                                                class="fas fa-toggle-off"></i></button>
-                                    </form>--}}
                                     <div
                                         class="btn btn-outline-secondary control-image-btn"
                                         data-id="{{ $image->id  }}"
@@ -139,7 +118,6 @@
         </div>
 
     </div>
-
 
 @endsection
 

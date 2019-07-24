@@ -20,6 +20,7 @@ Route::group(['prefix' => 'karapuzy'], function () {
 
     Route::get('/', 'KarapuzyController@karapuzy')->name('krpz');
     Route::get('/participate', 'KarapuzyController@participate')->name('krpz-participate');
+    Route::get('/all', 'KarapuzyController@all')->name('krpz-all');
     Route::get('/about', 'KarapuzyController@about')->name('krpz-about');
     Route::post('/add', 'KarapuzyController@add')->name('krpz-add');
     Route::get('/user-info', 'KarapuzyController@userInfo')->name('krpz-user-info');

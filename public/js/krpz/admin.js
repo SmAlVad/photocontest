@@ -48,7 +48,7 @@ $(document).ready(function () {
                 }, 2000);
 
                 // Активировать
-               if (data.status === true) {
+               if (data.status === 1) {
                    $('.tr-image-' + id).addClass('table-success');
 
                    $this.removeClass('btn-outline-secondary');

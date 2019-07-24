@@ -6,21 +6,7 @@ const fileTypes = [
     'image/png'
 ];
 
-$(document).ready(function () {
-
-    let flash = $('.flash');
-
-    if (flash.length > 0) {
-        flash.addClass('flash-active');
-
-        /*    setTimeout(function () {
-                flash.removeClass('flash-active')
-            }, 5000)*/
-    }
-
-});
-
-
+// Добавление фотографии
 if (window.location.pathname === '/karapuzy/participate') {
     const input = document.querySelector('#files');
     const preview = document.querySelector('.preview');
@@ -83,6 +69,13 @@ if (window.location.pathname === '/karapuzy/participate') {
         }
     }
 }
+
+// Голосование за фотографию
+$('.like-image').on('click', function () {
+
+    // Про геолокацию https://developers.google.com/web/fundamentals/native-hardware/user-location/?hl=ru
+
+});
 
 function validFileType(file) {
     for(let i = 0; i < fileTypes.length; i++) {

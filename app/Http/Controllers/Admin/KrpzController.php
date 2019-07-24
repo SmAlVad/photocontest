@@ -25,7 +25,7 @@ class KrpzController extends Controller
      */
     public function index()
     {
-        $count = $this->getCountFromCache();
+        $count = $this->imageRepository->getCount();
         $images = $this->imageRepository->getAllWithPaginate(30);
 
         return view('krpz/admin/index', compact('images', 'count'));
@@ -45,8 +45,7 @@ class KrpzController extends Controller
             $value = 'all';
         }
 
-        $count = $this->getCountFromCache();
-
+        $count = $this->imageRepository->getCount();
         $images = $this->imageRepository->getForSearch(30, $isActive, $value);
 
         return view('krpz/admin/index', compact('images', 'count'));
@@ -134,7 +133,8 @@ class KrpzController extends Controller
         if ($request->has('id')) {
             $image = $this->imageRepository->getEdit($request->id);
 
-            $state = !$image->is_active;
+            $state = $image->is_active ? 0 : 1;
+
             $image->is_active = $state;
 
             $image->save();

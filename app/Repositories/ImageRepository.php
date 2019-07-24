@@ -35,16 +35,40 @@ class ImageRepository extends CoreRepository
         return $this->startConditions()->find($id);
     }
 
-    public function getAllWithPaginate($perPage = null, $orderColumn = 'id', $der = 'DESC')
+    public function getAllForIndex($orderColumn, $limit, $photocontestId)
     {
 
         $result = $this->startConditions()
             ->select($this->columns)
+            ->where('photocontest_id', $photocontestId)
+            ->orderBy($orderColumn, 'DESC')
+            ->with([
+                'participant:id,name,phone'
+            ])
+            ->limit($limit)
+            ->get();
+
+        return $result;
+    }
+
+    /**
+     * @param integer $photocontestId ID фотоконкурса
+     * @param null $perPage Количество на странице
+     * @param string $orderColumn По какму полю сортировать
+     * @param string $der Направление сортировки
+     * @return Collection
+     */
+    public function getAllWithPaginate($photocontestId, $perPage = null, $orderColumn = 'id', $der = 'DESC')
+    {
+        $result = $this->startConditions()
+            ->select($this->columns)
+            ->where('photocontest_id', $photocontestId)
             ->orderBy($orderColumn, $der)
             ->with([
                 'participant:id,name,phone'
             ])
-            ->paginate($perPage);
+            ->paginate($perPage)
+            ->appends(['sort' => $orderColumn]);
 
         return $result;
     }
@@ -71,7 +95,7 @@ class ImageRepository extends CoreRepository
             ->whereIn('is_active', $isActive)
             ->orderBy('id', 'DESC')
             ->with([
-                'participant:id,name'
+                'participant:id,name,phone'
             ])
             ->paginate($perPage)
             ->appends('is_active', $value);
@@ -81,18 +105,18 @@ class ImageRepository extends CoreRepository
 
     public function getCount()
     {
-        $all = $this->startConditions()->count();
-        $active = $this->startConditions()
-            ->where('is_active',1)
-            ->count();
-        $nonActive = $this->startConditions()
-            ->where('is_active',0)
-            ->count();
+        $images = $this->startConditions()
+            ->select(['is_active'])
+            ->get();
 
         $result = [
-            'all' => $all,
-            'active' => $active,
-            'nonActive' => $nonActive
+            'all' => $images->count(),
+            'active' => $images->filter(function ($value) {
+                return $value->is_active == 1;
+            })->count(),
+            'nonActive' => $images->filter(function ($value) {
+                return $value->is_active == 0;
+            })->count(),
         ];
 
         return $result;

@@ -28,7 +28,7 @@
                        value="{{ $image->is_active }}"
                        id="form-checkbox"
                        @if($image->is_active) checked @endif>
-                <label class="form-check-label" for="is_active">Активено</label>
+                <label class="form-check-label" for="is_active">Активно</label>
 
                 <input type="hidden" name="is_active" value="{{ $image->is_active }}" id="is_active">
 

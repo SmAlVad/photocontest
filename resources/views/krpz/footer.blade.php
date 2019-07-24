@@ -7,13 +7,13 @@
             <div class="col-lg-6 col-md-12 col-12 columns-1">
                 <h2>Это Футер</h2>
                 <address>
-                    <p>Придумать тексе</p>
+                    <p>Придумать текст</p>
                     <p>Позвонить : <span>02</span></p>
                 </address>
             </div>
             <div class="col-lg-1 col-md-12 col-12"></div>
             <div class="col-lg-5 col-md-12 col-12 columns-2">
-                <h2>Здесь может быть форма обратной связи</h2>
+{{--                <h2>Здесь может быть форма обратной связи</h2>
                 <form class="row form-inline">
                     <div class="col-md-6 form-group">
                         <input type="text" class="form-control" placeholder="Ваше имя" required/>
@@ -27,7 +27,7 @@
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Отправить</button>
                     </div>
-                </form>
+                </form>--}}
             </div>
         </div>
     </div>

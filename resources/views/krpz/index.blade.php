@@ -1,14 +1,6 @@
 @extends('krpz.layouts.krpz')
 
 @section('content')
-
-    @if(session('flash_message'))
-        <div class="alert alert-info flash">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <span>{{ session('flash_message') }}</span>
-        </div>
-    @endif
-
     <!-- Banner section Start -->
     <section class="banner-home">
         <!-- Gradient -->
@@ -45,6 +37,25 @@
                     <h3>Давай давай!</h3>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-xl-12 mb-2">
+                    <div class="sort-buttons">
+                        <a href="{{ route('krpz') }}"
+                           class="btn btn-{{ $sortLinkActive == 'sort-by-like' ? 'success disabled' : 'light' }}"
+                        >
+                            По популярности
+                        </a>
+
+                        <a href="{{ route('krpz', ['sort' => 'created_at']) }}"
+                           class="btn btn-{{ $sortLinkActive == 'sort-by-date' ? 'success disabled' : 'light' }}">
+                            По дате добавления
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
             <div class="row" data-aos="fade-up" data-aos-duration="400">
 
                 @foreach($images as $image)
@@ -80,7 +91,7 @@
 
             <div class="row">
                 <div class="col-md-12 col-12 button">
-                    <a class="btn btn-success" href="#" role="button">Все работы</a>
+                    <a class="btn btn-success" href="{{ route('krpz-all') }}" role="button">Все работы</a>
                 </div>
             </div>
 
