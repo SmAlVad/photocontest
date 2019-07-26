@@ -9847,6 +9847,38 @@ h3 {
   text-transform: uppercase;
 }
 
+#like-success {
+  display: none;
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  padding: 10px 15px;
+  border-radius: 3px;
+}
+
+#like-error {
+  display: none;
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  padding: 10px 15px;
+  border-radius: 3px;
+}
+
+#like-loader-box {
+  display: none;
+  position: fixed;
+  top: 100px;
+  right: 30px;
+}
+#like-loader-box .like-loader {
+  display: flex;
+  align-items: center;
+}
+#like-loader-box .like-loader .loader-text {
+  margin-right: 5px;
+}
+
 #loader {
   display: none;
   position: fixed;

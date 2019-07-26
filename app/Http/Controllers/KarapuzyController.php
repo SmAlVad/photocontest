@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Image;
 use App\Participant;
 use App\Repositories\ImageRepository;
-use Carbon\Carbon;
+use App\Voter;
 use Intervention\Image\Facades\Image as Picture;
 use App\Photocontest;
 use Illuminate\Http\Request;
@@ -30,8 +30,8 @@ class KarapuzyController extends Controller
      */
     public function karapuzy(Request $request)
     {
-        $itemMenuActive = 'index';
         $itemsOnPage = 12;
+        $itemMenuActive = 'index';
 
         if ($request->has('sort')) {
             $column = $request->sort;
@@ -43,7 +43,7 @@ class KarapuzyController extends Controller
 
         $photocontest = Photocontest::find($this->ID);
 
-        $images = $this->imageRepository->getAllForIndex($column, $itemsOnPage, $this->ID);
+        $images = $this->imageRepository->getAllForIndex($this->ID, $column, $itemsOnPage);
 
         return view('krpz/index', compact('photocontest', 'images', 'itemMenuActive', 'sortLinkActive'));
     }
@@ -67,7 +67,7 @@ class KarapuzyController extends Controller
             $sortLinkActive = 'sort-by-date';
         }
 
-        $images = $this->imageRepository->getAllWithPaginate($this->ID, $itemsPerPage, $column);
+        $images = $this->imageRepository->getAllActiveWithPaginate($this->ID, $itemsPerPage, $column);
 
         return view('krpz/all', compact( 'images', 'itemMenuActive', 'sortLinkActive'));
     }
@@ -122,11 +122,9 @@ class KarapuzyController extends Controller
             $files = $request->file('attachment');
 
             $participant = new Participant();
-            $participant->ip = $request->ip();
             $participant->name = $request->input('name');
             $participant->email = $request->has('email') ? $request->input('email') : 'Не указан';
             $participant->phone = $request->input('phone');
-            $participant->last_hit = Carbon::yesterday();
             $participant->save();
 
 

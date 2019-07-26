@@ -74,7 +74,7 @@
 
                             <h4>
                                 <span class="like-counter">
-                                    <i class="fa fa-heart" aria-hidden="true"></i>{{ $image->like }}
+                                    <i class="fa fa-heart" aria-hidden="true"></i><span id="like-counter-{{ $image->id }}">{{ $image->like }}</span>
                                 </span>
                                 {{ $image->description }}
                             </h4>
@@ -99,4 +99,15 @@
         <!-- container Ended-->
     </section>
     <!-- Blog section Ended-->
+
+    <div id="like-success" class="alert alert-success">Success</div>
+    <div id="like-error" class="alert alert-danger"></div>
+
+    <div id="like-loader-box" class="alert alert-info">
+        <div class="like-loader">
+            <div class="loader-text">секунду</div>
+            <div class="loader-image"><img src="images/rolling.svg" alt="loader" width="30px"></div>
+        </div>
+    </div>
+
 @endsection

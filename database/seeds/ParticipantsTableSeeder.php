@@ -17,12 +17,9 @@ class ParticipantsTableSeeder extends Seeder
 
         for ($i = 1; $i < 11; $i++) {
             $participants[] = [
-                'ip' => "192.168.1.{$i}",
-
                 'name' => "Участник {$i}",
                 'email' => "{$i}mail@yendex.ru",
                 'phone' => "+7-92" . rand(1,9) . "-444-90-4" . rand(0,9),
-                'last_hit' => now()
             ];
         }
 

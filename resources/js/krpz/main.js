@@ -1,5 +1,7 @@
 const Inputmask = require('inputmask');
 
+const POTOCONTEST_ID = 1;
+
 const fileTypes = [
     'image/jpeg',
     'image/pjpeg',
@@ -72,8 +74,43 @@ if (window.location.pathname === '/karapuzy/participate') {
 
 // Голосование за фотографию
 $('.like-image').on('click', function () {
-
+    // Была идея запрашивать геолокацию
     // Про геолокацию https://developers.google.com/web/fundamentals/native-hardware/user-location/?hl=ru
+
+    let imageId = $(this).data('id');
+
+    $.ajax({
+        url: '/api/like-photo',
+        async: true,
+        type: "POST",
+        data: `imageId=${imageId}&photocontestId=${POTOCONTEST_ID}`,
+        beforeSend: function () {
+            $('#like-loader-box').show();
+        },
+        success: function (data) {
+
+            if (data.success === true) {
+
+                $('#like-loader-box').hide();
+
+                // Посетителю разрешили проголосовать
+                if (data.canLike === true) {
+                    showSuccessMessage('Ваш голос принят! Золотой Грамофон!', 2000);
+                    $('#like-counter-' + imageId).text(data.like);
+
+                } else {
+                    let msg = `Вы голосовали ${data.lastHit}! Приходите завтра!`;
+                    showErrorMessage(msg, 4000)
+                }
+
+            } else {
+                showErrorMessage(data.error);
+            }
+        },
+        error: function () {
+            showErrorMessage('Произошла ошибка при проверки пользователя');
+        }
+    });
 
 });
 
@@ -99,4 +136,20 @@ function returnFileSize(number) {
     } else if(number >= 1048576) {
         return (number/1048576).toFixed(1) + 'MB';
     }
+}
+
+function showSuccessMessage(text, timeOut) {
+    $('#like-success').text(text).fadeIn(300);
+
+    setTimeout(function () {
+        $('#like-success').fadeOut(300);
+    }, timeOut)
+}
+
+function showErrorMessage(text, timeOut) {
+    $('#like-error').text(text).fadeIn(300);
+
+    setTimeout(function () {
+        $('#like-error').fadeOut(300);
+    }, timeOut)
 }

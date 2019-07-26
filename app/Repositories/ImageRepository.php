@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Collection;
 class ImageRepository extends CoreRepository
 {
 
-    protected $columns = ['id', 'participant_id' , 'file_name', 'description', 'like', 'is_active', 'created_at'];
+    private $columns = ['id', 'participant_id' , 'file_name', 'description', 'like', 'is_active', 'created_at'];
 
     /**
      * @return string
@@ -35,12 +35,21 @@ class ImageRepository extends CoreRepository
         return $this->startConditions()->find($id);
     }
 
-    public function getAllForIndex($orderColumn, $limit, $photocontestId)
+    /**
+     * Получить все активные фотографии для главной страницы
+     *
+     * @param integer $photocontestId ID фотоконкурса
+     * @param string $orderColumn По какму полю сортировать
+     * @param integer $limit Лимит
+     * @return mixed
+     */
+    public function getAllForIndex($photocontestId, $orderColumn, $limit)
     {
 
         $result = $this->startConditions()
             ->select($this->columns)
             ->where('photocontest_id', $photocontestId)
+            ->where('is_active', 1)
             ->orderBy($orderColumn, 'DESC')
             ->with([
                 'participant:id,name,phone'
@@ -52,6 +61,8 @@ class ImageRepository extends CoreRepository
     }
 
     /**
+     * Получить все фотографии с пагинацией
+     *
      * @param integer $photocontestId ID фотоконкурса
      * @param null $perPage Количество на странице
      * @param string $orderColumn По какму полю сортировать
@@ -73,11 +84,20 @@ class ImageRepository extends CoreRepository
         return $result;
     }
 
-    public function getAllActiveWithPaginate($perPage = null, $orderColumn = 'id', $der = 'DESC')
+    /**
+     * Получить все активные фотографии с пагинацией
+     *
+     * @param integer $photocontestId ID фотоконкурса
+     * @param null $perPage Количество на странице
+     * @param string $orderColumn По какму полю сортировать
+     * @param string $der Направление сортировки
+     * @return Collection
+     */
+    public function getAllActiveWithPaginate($photocontestId, $perPage = null, $orderColumn = 'id', $der = 'DESC')
     {
-
         $result = $this->startConditions()
             ->select($this->columns)
+            ->where('photocontest_id', $photocontestId)
             ->where('is_active', 1)
             ->orderBy($orderColumn, $der)
             ->with([
@@ -88,6 +108,14 @@ class ImageRepository extends CoreRepository
         return $result;
     }
 
+    /**
+     * Получить фото для поиска в админке
+     *
+     * @param $perPage
+     * @param $isActive
+     * @param $value
+     * @return mixed
+     */
     public function getForSearch($perPage, $isActive, $value)
     {
         $result = $this->startConditions()
@@ -103,6 +131,11 @@ class ImageRepository extends CoreRepository
         return $result;
     }
 
+    /**
+     * Получить количество всех фотографий, количество активных и не активных
+     *
+     * @return array
+     */
     public function getCount()
     {
         $images = $this->startConditions()

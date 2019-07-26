@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 
 class KrpzController extends Controller
 {
+    private $ID = 1;
     private $imageRepository;
 
     public function __construct()
@@ -26,7 +27,7 @@ class KrpzController extends Controller
     public function index()
     {
         $count = $this->imageRepository->getCount();
-        $images = $this->imageRepository->getAllWithPaginate(30);
+        $images = $this->imageRepository->getAllWithPaginate($this->ID,30);
 
         return view('krpz/admin/index', compact('images', 'count'));
     }

@@ -4080,6 +4080,7 @@ __webpack_require__(/*! ./krpz/main */ "./resources/js/krpz/main.js");
 
 var Inputmask = __webpack_require__(/*! inputmask */ "./node_modules/inputmask/index.js");
 
+var POTOCONTEST_ID = 1;
 var fileTypes = ['image/jpeg', 'image/pjpeg', 'image/png']; // Добавление фотографии
 
 if (window.location.pathname === '/karapuzy/participate') {
@@ -4136,7 +4137,37 @@ if (window.location.pathname === '/karapuzy/participate') {
 } // Голосование за фотографию
 
 
-$('.like-image').on('click', function () {// Про геолокацию https://developers.google.com/web/fundamentals/native-hardware/user-location/?hl=ru
+$('.like-image').on('click', function () {
+  // Была идея запрашивать геолокацию
+  // Про геолокацию https://developers.google.com/web/fundamentals/native-hardware/user-location/?hl=ru
+  var imageId = $(this).data('id');
+  $.ajax({
+    url: '/api/like-photo',
+    async: true,
+    type: "POST",
+    data: "imageId=".concat(imageId, "&photocontestId=").concat(POTOCONTEST_ID),
+    beforeSend: function beforeSend() {
+      $('#like-loader-box').show();
+    },
+    success: function success(data) {
+      if (data.success === true) {
+        $('#like-loader-box').hide(); // Посетителю разрешили проголосовать
+
+        if (data.canLike === true) {
+          showSuccessMessage('Ваш голос принят! Золотой Грамофон!', 2000);
+          $('#like-counter-' + imageId).text(data.like);
+        } else {
+          var msg = "\u0412\u044B \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043B\u0438 ".concat(data.lastHit, "! \u041F\u0440\u0438\u0445\u043E\u0434\u0438\u0442\u0435 \u0437\u0430\u0432\u0442\u0440\u0430!");
+          showErrorMessage(msg, 4000);
+        }
+      } else {
+        showErrorMessage(data.error);
+      }
+    },
+    error: function error() {
+      showErrorMessage('Произошла ошибка при проверки пользователя');
+    }
+  });
 });
 
 function validFileType(file) {
@@ -4161,6 +4192,20 @@ function returnFileSize(number) {
   } else if (number >= 1048576) {
     return (number / 1048576).toFixed(1) + 'MB';
   }
+}
+
+function showSuccessMessage(text, timeOut) {
+  $('#like-success').text(text).fadeIn(300);
+  setTimeout(function () {
+    $('#like-success').fadeOut(300);
+  }, timeOut);
+}
+
+function showErrorMessage(text, timeOut) {
+  $('#like-error').text(text).fadeIn(300);
+  setTimeout(function () {
+    $('#like-error').fadeOut(300);
+  }, timeOut);
 }
 
 /***/ }),
