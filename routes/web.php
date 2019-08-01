@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('/', 'IndexController@index')->name('index');
 
 // Фотоконкурс "Карапузы"
-Route::group(['prefix' => 'karapuzy'], function () {
+Route::group(['prefix' => 'karapuzy', 'middleware' => ['web']], function () {
 
     Route::get('/', 'KarapuzyController@karapuzy')->name('krpz');
     Route::get('/participate', 'KarapuzyController@participate')->name('krpz-participate');
