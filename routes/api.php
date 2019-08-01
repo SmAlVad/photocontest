@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::patch('/karapuzy/control-image', 'Admin\KrpzController@controlImage')->name('admin-krpz-control-image');
 Route::post('/like-photo', 'VoterController@likePhoto');
+Route::get('/get-ip', 'VoterController@getIp');

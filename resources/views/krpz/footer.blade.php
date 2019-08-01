@@ -60,3 +60,16 @@
         </div>
     </div>
 </footer>
+
+<div id="loader-wrapper">
+    <div id="like-success" class="alert alert-success"></div>
+    <div id="like-error" class="alert alert-danger"></div>
+
+    <div id="like-loader-box" class="alert alert-info">
+        <div class="like-loader">
+            <div class="loader-image"><img src="images/rolling.svg" alt="loader" width="30px"></div>
+            <div class="loader-text">секунду...</div>
+        </div>
+    </div>
+</div>
+

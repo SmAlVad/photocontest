@@ -75,9 +75,6 @@ $offset: 30px
         i
             margin-right: 5px
 
-
-
-
 .participate
     padding-bottom: 5%
 
@@ -133,35 +130,50 @@ $offset: 30px
     border-radius: $offset / 3
     text-transform: uppercase
 
-#like-success
+#loader-wrapper
     display: none
     position: fixed
-    top: 100px
-    right: 10px
-    padding: $offset/3 $offset/2
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0,0,0, .8)
+    z-index: 10000
+
+#like-success
+    display: none
+    text-align: center
+    width: 20%
+    margin: 10% auto
+    padding: $offset/2
     border-radius: $offset / 10
+    i
+        font-size: 2rem
+        margin-right: 10px
 
 #like-error
     display: none
-    position: fixed
-    top: 100px
-    right: 10px
-    padding: $offset/3 $offset/2
+    width: 30%
+    margin: 10% auto
+    padding: $offset/2
     border-radius: $offset / 10
+    i
+        font-size: 2rem
+        margin-right: 10px
 
 #like-loader-box
     display: none
-    position: fixed
-    top: 100px
-    right: 30px
+    padding: $offset/2
+    width: 10%
+    margin: 10% auto
 
     .like-loader
         display: flex
         align-items: center
-
+        justify-content: center
 
         .loader-text
-            margin-right: 5px
+            margin-left: 5px
 
 // Admin
 #loader

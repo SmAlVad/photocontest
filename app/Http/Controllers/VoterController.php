@@ -19,8 +19,7 @@ class VoterController extends Controller
      */
     public function likePhoto(Request $request)
     {
-        sleep(2);
-
+        //sleep(2);
         $result = ['error' => 'Не корректный запрос', 'success' => false];
         $ip = $request->ip();
 
@@ -39,7 +38,7 @@ class VoterController extends Controller
 
                 // Пользователь голосовал за фото
                 if ($hit) {
-                    // Проверяем можно ли голосовать
+                    // Проверяем, можно ли голосовать повторно
                     // Если дата последнего голосования больше чем сутки назад, то отказываем
                     if ($hit->last_hit > Carbon::parse('-1 day')) {
                         $result = ['success' => true, 'voter' => $voter->id, 'canLike' => false, 'lastHit' => $hit->last_hit];
@@ -98,5 +97,18 @@ class VoterController extends Controller
         }
 
         return response()->json($result);
+    }
+
+    /**
+     * Возвращает IP запроса
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getIp(Request $request) {
+
+        $info = file_get_contents("http://ip-api.com/json/{$request->ip()}");
+        //$info = file_get_contents("http://ip-api.com/json/195.208.34.43");
+        return response($info);
     }
 }
