@@ -28,6 +28,8 @@
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+require('@fortawesome/fontawesome-free/js/all.min');
+
 require('./krpz/main');
 
 /*const app = new Vue({

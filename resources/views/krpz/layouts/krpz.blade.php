@@ -15,7 +15,6 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800|Old+Standard+TT:400,400i,700" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
     <!-- CSS -->
     <link href="{{ asset('css/krpz/animate.css') }}" rel="stylesheet">
@@ -33,9 +32,6 @@
 @yield('content')
 
 @include('krpz.footer')
-
-<!-- Return to Top -->
-<a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

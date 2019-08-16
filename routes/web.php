@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/', 'IndexController@index')->name('index');
 

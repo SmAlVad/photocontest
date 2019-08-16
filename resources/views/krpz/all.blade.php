@@ -35,14 +35,14 @@
                                 <i class="fa fa-search-plus" aria-hidden="true"></i>
                             </div>
                             <div class="like-image" data-id="{{ $image->id }}">
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                <i class="far fa-heart" aria-hidden="true"></i>
                             </div>
                             <img src="/storage/{{ $image->file_name }}" alt="{{ $image->description }}">
                         </div>
 
                         <h4>
                             <span class="like-counter">
-                                <i class="fa fa-heart" aria-hidden="true"></i>{{ $image->like }}
+                                <i class="far fa-heart mr-1" aria-hidden="true"></i>{{ $image->like }}
                             </span>
                             {{ $image->description }}
                         </h4>
@@ -62,4 +62,6 @@
             </div>
         </div>
     </div>
+
+    <section class="blog"></section>
 @endsection

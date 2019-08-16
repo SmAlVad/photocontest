@@ -52,6 +52,7 @@ $(function () {
 /* ============================================================
    Scroll to Top
  * ============================================================*/
+/*
 $(window).scroll(function () {
     if ($(this).scrollTop() >= 50) { // If page is scrolled more than 50px
         $('#return-to-top').fadeIn(200); // Fade in the arrow
@@ -66,3 +67,4 @@ $('#return-to-top').click(function () {
         scrollTop: 0 // Scroll to top of body
     }, 500);
 });
+ */

@@ -25,6 +25,64 @@ $offset: 30px
     font-size: 3rem !important
     padding: $offset 0
 
+
+.top-content
+    margin-top: -8%
+    text-shadow: 1px 1px 1px $krpz_dark_blue
+    @media screen and (max-width: 1200px)
+        display: none
+
+.top-content-mob
+    display: none
+    @media screen and (max-width: 1200px)
+        display: block
+        text-shadow: 1px 1px 1px $krpz_dark_blue
+
+.slide-menu
+    .fa-bars
+        cursor: pointer
+        font-size: 1.5rem
+        color: rgba(178, 215, 50, .5)
+        display: block
+        font-weight: 600
+        text-transform: uppercase
+        &:hover
+            color: rgba(178, 215, 50, .8)
+
+.participate-link
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    //@media screen and (max-width: 720px)
+    //    justify-content: flex-start
+    a
+        color: white
+        text-transform: uppercase
+        padding: 5px 15px
+        border: 1px solid white
+        border-radius: 20px
+        cursor: pointer
+        font-weight: bold
+        background-color: rgba(178, 215, 50, .5)
+        &:hover
+            background-color: rgba(178, 215, 50, .8)
+            text-decoration: none
+            text-shadow: none
+
+.heading-desc
+    p
+        @media screen and (max-width: 720px)
+            margin: 0
+
+.sort-buttons
+    @media screen and (max-width: 720px)
+        display: flex
+        justify-content: space-between
+        a
+            font-size: 13px
+
 .krpz-img
     .image-action
         position: relative
@@ -75,6 +133,7 @@ $offset: 30px
         i
             margin-right: 5px
 
+
 .participate
     padding-bottom: 5%
 
@@ -82,6 +141,7 @@ $offset: 30px
         padding: 6%
         border-radius: $offset / 3
         background-color: #f2f2f2
+
 
 #krpz-file-input
     position: relative
@@ -93,6 +153,7 @@ $offset: 30px
     .file-upload-label-wrapper
         padding-top: $offset - 10
         display: flex
+        flex-wrap: wrap
         justify-content: space-between
         align-items: center
 
@@ -119,6 +180,7 @@ $offset: 30px
                 input
                     width: 100%
 
+
 .krpz-submit-btn
     font-size: 1.3rem
     border: none
@@ -130,6 +192,7 @@ $offset: 30px
     border-radius: $offset / 3
     text-transform: uppercase
 
+
 #loader-wrapper
     display: none
     position: fixed
@@ -140,16 +203,19 @@ $offset: 30px
     background-color: rgba(0,0,0, .8)
     z-index: 10000
 
+
 #like-success
     display: none
-    text-align: center
     width: 20%
     margin: 10% auto
     padding: $offset/2
     border-radius: $offset / 10
+    @media screen and (max-width: 720px)
+        width: 90%
     i
         font-size: 2rem
         margin-right: 10px
+
 
 #like-error
     display: none
@@ -157,15 +223,21 @@ $offset: 30px
     margin: 10% auto
     padding: $offset/2
     border-radius: $offset / 10
+    @media screen and (max-width: 720px)
+        width: 90%
+
     i
         font-size: 2rem
         margin-right: 10px
+
 
 #like-loader-box
     display: none
     padding: $offset/2
     width: 10%
     margin: 10% auto
+    @media screen and (max-width: 720px)
+        width: 90%
 
     .like-loader
         display: flex
@@ -175,7 +247,59 @@ $offset: 30px
         .loader-text
             margin-left: 5px
 
+
 // Admin
+
+
+// Footer
+footer
+    @media screen and (max-width: 720px)
+        padding-top: 15%!important
+        font-size: 13px
+
+.footer-block
+    h5
+        color: $krpz_light
+
+    .footer-block-list
+        list-style-type: none
+        padding: 0
+        margin: 0
+
+        li
+            color: $krpz_light
+            a
+                color: $krpz_light
+                &:hover
+                    text-decoration: none
+                    color: $krpz_light_green
+
+    .footer-social
+        .footer-social-item
+            color: $krpz_light_green
+            display: flex
+            justify-content: flex-start
+            a
+                color: $krpz_light_green
+                display: block
+                font-size: 1.5rem
+                margin-right: 10px
+                &:hover
+                    color: $krpz_green
+
+
+.footer-info
+    color: $krpz_light
+    font-size: .8rem
+
+    p
+        margin: 0
+
+.gl-red
+    color: $krpz_light_green
+    &:hover
+        color: $krpz_green
+
 #loader
     display: none
     position: fixed

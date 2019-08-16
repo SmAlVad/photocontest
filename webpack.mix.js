@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+require('laravel-mix-imagemin');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -18,6 +18,8 @@ mix.sass('resources/sass/app.sass', 'public/css')
     .options({
         processCssUrls: false
     });
+
+//mix.imagemin('public/images/*');
 
 mix.browserSync({
     proxy: 'photocontest.l',

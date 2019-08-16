@@ -90,7 +90,7 @@ $('.like-image').on('click', function () {
     // Проверяем IP голосующего
     $.ajax({
         url: '/api/get-ip',
-        //async: true,
+        async: true,
         dataType: 'JSON',
         type: "GET",
         data: '',
@@ -105,16 +105,20 @@ $('.like-image').on('click', function () {
                     // Отправляем запрос на добавление голоса
                     like(imageId);
                 } else {
-                    showErrorMessage('В голосовании могут принимать участие только люди находящиеся на территории России', 3000);
+                    showErrorMessage('В голосовании могут принимать участие только люди находящиеся на территории России', 4000);
                 }
             } else {
-                showErrorMessage('Невозможно определить откуда вы пришли', 3000);
+                showErrorMessage('Невозможно определить откуда Вы', 4000);
             }
         },
         error: function () {
-            showErrorMessage('Невозможно определить откуда вы пришли', 2000);
+            showErrorMessage('Невозможно определить откуда вы пришли', 4000);
         }
     });
+});
+
+$('#loader-wrapper').on('click', function (e) {
+    e.stopPropagation();
 });
 
 // AJAX запрос на добавление голоса в БД
@@ -128,18 +132,18 @@ function like(imageId) {
             if (data.success === true) {
                 // Посетителю разрешили проголосовать
                 if (data.canLike === true) {
-                    showSuccessMessage('Ваш голос принят! Золотой Грамофон!', 2000);
+                    showSuccessMessage('Ваш голос принят!', 2000);
                     $('#like-counter-' + imageId).text(data.like);
                 } else {
-                    let msg = `Вы голосовали ${data.lastHit}! Приходите завтра!`;
-                    showErrorMessage(msg, 5000)
+                    let msg = `Вы голосовали ${data.lastHit}!`;
+                    showErrorMessage(msg, 4000)
                 }
             } else {
                 showErrorMessage(data.error);
             }
         },
         error: function () {
-            showErrorMessage('Произошла ошибка при проверки пользователя', 3000);
+            showErrorMessage('Произошла ошибка во время проверки пользователя', 3000);
         }
     });
 }

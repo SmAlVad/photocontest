@@ -9,15 +9,41 @@
         <div class="container">
             <!--Row Start-->
             <div class="row">
-                <div class="col-sm-12">
-                    <h1 data-aos="fade-left">Блондинки vs Брюнетки</h1>
-                    <h2 data-aos="fade-left" data-aos-delay="100">
-                        Свершилось! Наконец-то мы сможем поставить точку в вечном споре, кто же круче - блондинки или
-                        брюнетки.
-                    </h2>
+                <div class="col-lg-12 col-xl-8">
+                    <div class="top-content">
+                        <h1 data-aos="fade-left">Карапузы, на старт!</h1>
+                        <h2 data-aos="fade-left" data-aos-delay="100">
+                            Фотоконкурс для самых маленьких и активных малышей!
+                        </h2>
+                        <h4 data-aos="fade-left" data-aos-delay="100">
+                            Присылайте фотографии своих любимых карапузов на прогулке или во время игр дома.
+                            Покажите, как детки помогают маме или задорно веселятся.
+                        </h4>
+                        <h4 data-aos="fade-left" data-aos-delay="200">
+                            Мы ждем фотографий ваших карапузов, которые занимаются любимым делом! Не упустите шанс выиграть призы!
+                        </h4>
+                        <h4 data-aos="fade-left" data-aos-delay="300" class="mt-3">
+                            Кстати, если вы участвовали в веселом соревновании для малышей «Карапузы, на старт»,
+                            то ваши снимки мы ждем с двойным удовольствием!
+                        </h4>
 
-                    <a data-aos="fade-left" data-aos-delay="500" class="btn btn-success"
-                       href="{{ route('krpz-participate') }}" role="button">Принять участие</a>
+{{--                        <a data-aos="fade-left" data-aos-delay="500" class="btn btn-success"--}}
+{{--                           href="{{ route('krpz-participate') }}" role="button">Принять участие</a>--}}
+                    </div>
+
+                    <div class="top-content-mob">
+                        <h1 data-aos="fade-left">Карапузы, на старт!</h1>
+                        <h2 data-aos="fade-left" data-aos-delay="100">
+                            Фотоконкурс для самых маленьких и активных малышей!
+                        </h2>
+                        <h6 data-aos="fade-left" data-aos-delay="100">
+                            Присылайте фотографии своих любимых карапузов на прогулке или во время игр дома.
+                            Покажите, как детки помогают маме или задорно веселятся.
+                        </h6>
+                        <h6 data-aos="fade-left" data-aos-delay="100">
+                            Мы ждем фотографий ваших карапузов, которые занимаются любимым делом! Не упустите шанс выиграть призы!
+                        </h6>
+                    </div>
                 </div>
             </div>
             <!--Row Ended-->
@@ -34,7 +60,17 @@
                 <div class="col-md-12 col-12 heading">
                     <img src="images/leaf.png" alt="">
                     <h2>Голосуй за участников!</h2>
-                    <h3>Давай давай!</h3>
+                    <div class="heading-desc">
+                        <p>
+                            Для того, чтобы оставить голос за понравившеюся работу, не нужно регистрироваться.
+                        </p>
+                        <p>
+                            Один пользователь может проголосовать один раз за сутки.
+                        </p>
+                        <p>
+                            Все попытки накрутки голосов будут аннулированы модераторами.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -64,17 +100,17 @@
 
                             <div class="image-action">
                                 <div class="zoom-img">
-                                    <i class="fa fa-search-plus" aria-hidden="true"></i>
+                                    <i class="fas fa-search-plus" aria-hidden="true"></i>
                                 </div>
                                 <div class="like-image" data-id="{{ $image->id }}">
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="far fa-heart" aria-hidden="true"></i>
                                 </div>
                                 <img src="/storage/{{ $image->file_name }}" alt="{{ $image->description }}">
                             </div>
 
                             <h4>
                                 <span class="like-counter">
-                                    <i class="fa fa-heart" aria-hidden="true"></i><span id="like-counter-{{ $image->id }}">{{ $image->like }}</span>
+                                    <i class="far fa-heart" aria-hidden="true"></i><span id="like-counter-{{ $image->id }}" class="ml-1">{{ $image->like }}</span>
                                 </span>
                                 {{ $image->description }}
                             </h4>

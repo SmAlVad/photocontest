@@ -27,11 +27,11 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-xl-12">
+            <div class="col-xl-12" data-aos="fade-left" data-aos-delay="200">
                 <h1 class="text-title">Заполните форму</h1>
             </div>
 
-            <div class="col-xl-12">
+            <div class="col-xl-12" data-aos="fade-left" data-aos-delay="300">
                 <form action="{{ route('krpz-add') }}" method="POST" enctype="multipart/form-data" class="participate-form">
 
                     @csrf
@@ -98,4 +98,6 @@
             </div>
         </div>
     </div>
+
+    <section class="blog"></section>
 @endsection
