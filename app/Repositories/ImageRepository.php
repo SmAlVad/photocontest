@@ -103,7 +103,8 @@ class ImageRepository extends CoreRepository
             ->with([
                 'participant:id,name'
             ])
-            ->paginate($perPage);
+            ->paginate($perPage)
+            ->appends(['sort' => $orderColumn]);
 
         return $result;
     }
