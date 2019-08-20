@@ -115,3 +115,12 @@
     </div>
 </div>
 
+<div class="slider-wrap">
+    <div class="arrow-left arrow"></div>
+    <div class="slider">
+
+    </div>
+    <div class="arrow-right arrow"></div>
+    <span class="close-slider"><i class="fas fa-times"></i></span>
+</div>
+

@@ -95,7 +95,7 @@
             <div class="row" data-aos="fade-up" data-aos-duration="400">
 
                 @foreach($images as $image)
-                    <div class="col-md-3">
+                    <div class="col-md-6 col-lg-4">
                         <div class="krpz-img">
 
                             <div class="image-action">

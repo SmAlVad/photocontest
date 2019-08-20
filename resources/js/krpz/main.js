@@ -78,9 +78,11 @@ if (window.location.pathname === '/karapuzy/participate') {
 //TODO: Надо переписать без jquery
 
 // Голосование за фотографию
-$('.like-image').on('click', function () {
+$('.like-image').on('click', function (e) {
     // Была идея запрашивать геолокацию
     // Про геолокацию https://developers.google.com/web/fundamentals/native-hardware/user-location/?hl=ru
+
+    e.stopPropagation();
 
     // ID фотографии в БД
     let imageId = $(this).data('id');
@@ -191,5 +193,87 @@ function showErrorMessage(text, timeOut) {
         $('#loader-wrapper').fadeOut(400);
     }, timeOut)
 }
+
+
+// Slider
+const images = $('.image-action'); // коллекция картинок
+
+images.on('click', function () {
+    // Показываем обертку
+    $('.slider-wrap').show();
+
+    let arrowLeft = $('.arrow-left'); // кнопка ВЛЕВО
+    let arrowRight = $('.arrow-right'); // кнопка ВПРАВО
+
+    let currentImage = 0; // Индекс текущей картинки
+    let imgHtml = ''; // HTML элементов img
+
+    // Пробегаемся по массиву картинок и формируем HTML для вставки в слайдер
+    for (let i = 0; i < images.length; i++) {
+        let src = $(images[i]).children().last().attr('src');
+        imgHtml += `<img src="${src}" class="img-slide">`;
+
+        // Сохраняем ID катринки по которой кликнули
+        if ($(this).children().last().attr('src') === src) {
+            currentImage = i;
+        }
+    }
+
+    // Вставляем HTML с картинками
+    $('.slider').html(imgHtml);
+
+    let sliderImages = $('.img-slide'); // коллекция сгенерированных картинок
+
+    // Стартуем слайдер
+    startSlide();
+
+    // Скрывает все элементы
+    function reset() {
+        for (let i = 0; i < sliderImages.length; i++) {
+            sliderImages[i].style.display = 'none';
+        }
+    }
+
+    // Делаем первый элемент видимым, стартуем слайдер
+    function startSlide() {
+        reset();
+        sliderImages[currentImage].style.display = 'block';
+    }
+
+    // Слайд влево
+    function slideLeft() {
+        reset();
+        sliderImages[currentImage - 1].style.display = 'block';
+        currentImage--;
+    }
+
+    // Слайд вправо
+    function slideRight() {
+        reset();
+        sliderImages[currentImage + 1].style.display = 'block';
+        currentImage++;
+    }
+
+    // Клик по кнопке ВЛЕВО
+    arrowLeft.on('click', function () {
+        if (currentImage === 0) {
+            currentImage = sliderImages.length;
+        }
+        slideLeft();
+    });
+
+    // Клик по кнопке ВПРАВО
+    arrowRight.on('click', function () {
+        if (currentImage === sliderImages.length - 1) {
+            currentImage = 0;
+        }
+        slideRight();
+    });
+
+
+   $('.close-slider').on('click', function () {
+       $('.slider-wrap').hide();
+   });
+});
 
 

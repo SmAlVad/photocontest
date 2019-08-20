@@ -85,6 +85,7 @@ $offset: 30px
 
 .krpz-img
     .image-action
+        cursor: pointer
         position: relative
         margin-bottom: $offset / 6
 
@@ -322,3 +323,68 @@ footer
     right: 10px
     padding: $offset/3 $offset/2
     border-radius: $offset / 10
+
+// Slider
+.slider-wrap
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 10001
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, .9)
+
+    .slider
+        padding: 15px
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+
+        img
+            width: 1140px
+            @media screen and (max-width: 1140px)
+                width: 100%
+
+
+
+    .arrow
+        cursor: pointer
+        position: absolute
+        top: 50%
+        margin-top: -50px
+        width: 0
+        height: 0
+        border-style: solid
+
+    .arrow-left
+        border-width: 30px 40px 30px 0
+        border-color: transparent rgba(255, 255, 255, .5) transparent transparent
+        left: 50px
+        &:hover
+            border-color: transparent rgba(255, 255, 255, .8) transparent transparent
+        @media screen and (max-width: 1140px)
+            left: 20px
+
+    .arrow-right
+        border-width: 30px 0 30px 40px
+        border-color: transparent transparent transparent rgba(255, 255, 255, .5)
+        right: 50px
+        &:hover
+            border-color: transparent transparent transparent rgba(255, 255, 255, .8)
+        @media screen and (max-width: 1140px)
+            right: 20px
+
+    .close-slider
+        position: absolute
+        top: 5%
+        right: 3%
+        color: rgba(255, 255, 255, .5)
+        font-size: 3rem
+        cursor: pointer
+        &:hover
+            color: rgba(255, 255, 255, .8)
+        @media screen and (max-width: 1140px)
+            top: 10px
+            right: 40px
