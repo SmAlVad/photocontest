@@ -57,6 +57,7 @@ if (window.location.pathname === '/karapuzy/participate') {
                     inputDescription.type = 'text';
                     inputDescription.placeholder = 'Добавьте небольшое описание фотографии';
                     inputDescription.className = 'uploaded-file-description';
+                    inputDescription.required = true;
                     inputDescription.name = curFiles[i].name.split('.').slice(0, -1).join('.');
 
                     listItem.appendChild(image);
