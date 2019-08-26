@@ -62,7 +62,7 @@ class KarapuzyController extends Controller
 
         if ($request->has('sort')) {
             $column = $request->sort;
-            $sortLinkActive = 'sort-by-like';
+            $sortLinkActive = ($request->sort == 'like') ? 'sort-by-like' : 'sort-by-date';
         } else {
             $sortLinkActive = 'sort-by-date';
         }
