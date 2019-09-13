@@ -18,6 +18,8 @@ class KarapuzyController extends Controller
 
     private $imageRepository;
 
+    private $endDate = '2019-09-15 00:00:00';
+
     public function __construct()
     {
         $this->imageRepository = app(ImageRepository::class);
@@ -41,11 +43,15 @@ class KarapuzyController extends Controller
             $sortLinkActive = 'sort-by-like';
         }
 
+        $showResult = now() > $this->endDate ? true : false;
+
+        $winner = $this->imageRepository->getWinner($this->ID);
+
         $photocontest = Photocontest::find($this->ID);
 
         $images = $this->imageRepository->getAllForIndex($this->ID, $column, $itemsOnPage);
 
-        return view('krpz/index', compact('photocontest', 'images', 'itemMenuActive', 'sortLinkActive'));
+        return view('krpz/index', compact('photocontest', 'images', 'itemMenuActive', 'sortLinkActive', 'winner', 'showResult'));
     }
 
 
@@ -69,7 +75,9 @@ class KarapuzyController extends Controller
 
         $images = $this->imageRepository->getAllActiveWithPaginate($this->ID, $itemsPerPage, $column);
 
-        return view('krpz/all', compact( 'images', 'itemMenuActive', 'sortLinkActive'));
+        $showResult = now() > $this->endDate ? true : false;
+
+        return view('krpz/all', compact( 'images', 'itemMenuActive', 'sortLinkActive', 'showResult'));
     }
 
     /**
@@ -80,8 +88,13 @@ class KarapuzyController extends Controller
     public function participate()
     {
         $itemMenuActive = 'participate';
+        $showResult = now() > $this->endDate ? true : false;
 
-        return view('krpz/participate', compact('itemMenuActive'));
+        if ($showResult) {
+            return redirect()->route('krpz');
+        } else {
+            return view('krpz/participate', compact('itemMenuActive', 'showResult'));
+        }
     }
 
 
@@ -93,8 +106,9 @@ class KarapuzyController extends Controller
     public function about()
     {
         $itemMenuActive = 'about';
+        $showResult = now() > $this->endDate ? true : false;
 
-        return view('krpz/about', compact('itemMenuActive'));
+        return view('krpz/about', compact('itemMenuActive', 'showResult'));
     }
 
     /**
@@ -105,7 +119,9 @@ class KarapuzyController extends Controller
     public function userInfo()
     {
         $itemMenuActive = '';
-        return view('krpz/userinfo', compact('itemMenuActive'));
+        $showResult = now() > $this->endDate ? true : false;
+
+        return view('krpz/userinfo', compact('itemMenuActive', 'showResult'));
     }
 
     /**
@@ -116,57 +132,61 @@ class KarapuzyController extends Controller
     public function add(KarapuzyAddRequest $request)
     {
         $fileCount = 0;
+        $showResult = now() > $this->endDate ? true : false;
 
-        if($request->hasFile('attachment'))
-        {
-            $files = $request->file('attachment');
+        if ($showResult) {
+            return redirect()->route('krpz');
+        } else {
+            if($request->hasFile('attachment')) {
+                $files = $request->file('attachment');
 
-            $participant = new Participant();
-            $participant->name = $request->input('name');
-            $participant->email = $request->has('email') ? $request->input('email') : 'Не указан';
-            $participant->phone = $request->input('phone');
-            $participant->save();
-
-
-            foreach ($files as $file) {
-
-                $image = new Image();
-                $pic = Picture::make($file->getRealPath());
-                $realFilename = $image->getNameWithoutExt($file->getClientOriginalName());
-
-                $filename  = $image->generateRandomString() . '.' . $file->getClientOriginalExtension();
-
-                $image->photocontest_id = $this->ID;
-                $image->participant_id = $participant->id;
-                $image->file_name =  $filename;
-                $image->mime = $file->getClientMimeType();
-                $image->ext = $file->getClientOriginalExtension();
-                $image->size = $file->getSize();
-                $image->description = ($request->has($realFilename)) ? $request->input($realFilename) : '';
-                $image->like = 0;
-                $image->is_active = 0;
-                $image->save();
+                $participant = new Participant();
+                $participant->name = $request->input('name');
+                $participant->email = $request->has('email') ? $request->input('email') : 'Не указан';
+                $participant->phone = $request->input('phone');
+                $participant->save();
 
 
-                $path = public_path('/storage/' . $filename);
+                foreach ($files as $file) {
 
-                if ($pic->width() > 640) {
-                    $pic->resize(640, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
-                }
+                    $image = new Image();
+                    $pic = Picture::make($file->getRealPath());
+                    $realFilename = $image->getNameWithoutExt($file->getClientOriginalName());
 
-                $pic->save($path);
+                    $filename  = $image->generateRandomString() . '.' . $file->getClientOriginalExtension();
 
-                if ($fileCount === 2) {
-                    break;
-                } else {
-                    $fileCount++;
+                    $image->photocontest_id = $this->ID;
+                    $image->participant_id = $participant->id;
+                    $image->file_name =  $filename;
+                    $image->mime = $file->getClientMimeType();
+                    $image->ext = $file->getClientOriginalExtension();
+                    $image->size = $file->getSize();
+                    $image->description = ($request->has($realFilename)) ? $request->input($realFilename) : '';
+                    $image->like = 0;
+                    $image->is_active = 0;
+                    $image->save();
+
+
+                    $path = public_path('/storage/' . $filename);
+
+                    if ($pic->width() > 640) {
+                        $pic->resize(640, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        });
+                    }
+
+                    $pic->save($path);
+
+                    if ($fileCount === 2) {
+                        break;
+                    } else {
+                        $fileCount++;
+                    }
                 }
             }
-        }
 
-        return redirect()->route('krpz-user-info');
+            return redirect()->route('krpz-user-info');
+        }
     }
 
 }

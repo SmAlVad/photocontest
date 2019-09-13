@@ -13,11 +13,14 @@
 
             <div class="row py-2">
 
-                <div class="col-lg-5 col-md-10 col-10">
-                    <div class="participate-link">
-                        <a  href="{{ route('krpz-participate') }}" role="button">Принять участие</a>
+
+                    <div class="col-lg-5 col-md-10 col-10">
+                        @if(!$showResult)
+                            <div class="participate-link">
+                                <a  href="{{ route('krpz-participate') }}" role="button">Принять участие</a>
+                            </div>
+                        @endif
                     </div>
-                </div>
 
 {{--                <div class="col-lg-5 d-none d-md-none d-lg-block d-xl-block align-self-center left-side">--}}
 {{--                    <p>Карапузы, на старт!--}}

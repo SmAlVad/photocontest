@@ -27,16 +27,18 @@
         <div class="row" data-aos="fade-up" data-aos-duration="400">
 
             @foreach($images as $image)
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="krpz-img">
 
                         <div class="image-action">
                             <div class="zoom-img">
                                 <i class="fa fa-search-plus" aria-hidden="true"></i>
                             </div>
-                            <div class="like-image" data-id="{{ $image->id }}">
-                                <i class="far fa-heart" aria-hidden="true"></i>
-                            </div>
+                            @if(!$showResult)
+                                <div class="like-image" data-id="{{ $image->id }}">
+                                    <i class="far fa-heart" aria-hidden="true"></i>
+                                </div>
+                            @endif
                             <img src="/storage/{{ $image->file_name }}" alt="{{ $image->description }}">
                         </div>
 

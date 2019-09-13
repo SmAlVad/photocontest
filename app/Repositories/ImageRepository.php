@@ -155,4 +155,19 @@ class ImageRepository extends CoreRepository
 
         return $result;
     }
+
+    /**
+     * Получить победителя
+     *
+     * @return array
+     */
+    public function getWinner($photocontestId)
+    {
+        $winner = $this->startConditions()
+            ->where('photocontest_id', $photocontestId)
+            ->orderBy('like', 'DESC')
+            ->first();
+
+        return $winner;
+    }
 }
